@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "YSMTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    YSMTabBarController* tabBarC = [[YSMTabBarController alloc] init];
+    [self.window setRootViewController:tabBarC];
+    [self.window makeKeyWindow];
+    
+    //解决tabbar出现错位的问题
+    [[UITabBar appearance] setTranslucent:NO];
     // Override point for customization after application launch.
     return YES;
 }
