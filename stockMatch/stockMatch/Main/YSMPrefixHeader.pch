@@ -8,6 +8,7 @@
 
 #ifndef YSMPrefixHeader_h
 #define YSMPrefixHeader_h
-
+#import "UIColor+tool.h"
+#import "LSMColors.h"
 
 #endif /* YSMPrefixHeader_h */
