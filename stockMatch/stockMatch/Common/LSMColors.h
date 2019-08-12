@@ -10,5 +10,6 @@
 #define LSMColors_h
 
 #define HEF_COLOR_HEX(exp)         [UIColor colorWithHexString:exp]
+#define Orange_ThemeColor               HEF_COLOR_HEX(@"#FF9300")
 
 #endif /* LSMColors_h */
