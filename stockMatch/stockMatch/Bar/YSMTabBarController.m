@@ -33,8 +33,8 @@
 }
 - (void)setupChildVc:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage isHiddenNavgationBar:(BOOL)isHidden{
     vc.tabBarItem.title = title;
-//    vc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];//没有图片的情况下  title不会显示
+    vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     YSMNavigationController *nav = [[YSMNavigationController alloc]initWithRootViewController:vc];
     nav.navigationBar.hidden = isHidden;
     [self addChildViewController:nav];
@@ -51,15 +51,15 @@
     //设置未选中的TabBarItem的字体颜色、大小
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = [UIFont systemFontOfSize:11];
-    attrs[NSForegroundColorAttributeName] = [UIColor blackColor];//HEF_COLOR_HEX(@"9B8F8F");
+    attrs[NSForegroundColorAttributeName] = HEF_COLOR_HEX(@"9B8F8F");
     //设置选中了的TabBarItem的字体颜色、大小
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
     selectedAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:11];
-    selectedAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];//Orange_ThemeColor;
+    selectedAttrs[NSForegroundColorAttributeName] = Orange_ThemeColor;
     
     UITabBarItem *item = [UITabBarItem appearance];
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
-    [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+    [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];      
 }
 /*
 #pragma mark - Navigation
