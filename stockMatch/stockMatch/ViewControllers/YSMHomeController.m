@@ -7,7 +7,7 @@
 //
 
 #import "YSMHomeController.h"
-
+#import "YSMCarouselView.h"
 @interface YSMHomeController ()
 
 @end
@@ -16,9 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(200, 100, 100, 100)];
-    button.backgroundColor = [UIColor redColor];
-    [self.view addSubview:button];
+    YSMCarouselView *carouseView = [[YSMCarouselView alloc] initWithFrame:CGRectMake(0, 100, self.view.width, 100)];
+    NSMutableArray *imgaes = [NSMutableArray array];
+    for (NSInteger i = 1; i < 4; i ++) {
+        [imgaes addObject:[UIImage imageNamed:[NSString stringWithFormat:@"img%ld.jpg",i]]];
+    }
+    [carouseView addImages:imgaes type:YSMCarouselViewTypeImage];
+    
+    
+    [self.view addSubview:carouseView];
     // Do any additional setup after loading the view.
 }
 

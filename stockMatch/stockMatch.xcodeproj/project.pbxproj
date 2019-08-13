@@ -28,6 +28,17 @@
 		C105AF3923025F6B00C6235E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF3423025F6B00C6235E /* UIView+Toast.m */; };
 		C105AF3E23025FE400C6235E /* getOnNetUrlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF3A23025FE400C6235E /* getOnNetUrlBuilder.m */; };
 		C105AF3F23025FE400C6235E /* getOnNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF3C23025FE400C6235E /* getOnNetManager.m */; };
+		C105AF432302AB2B00C6235E /* YSMCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF422302AB2B00C6235E /* YSMCarouselView.m */; };
+		C105AF502302BC1A00C6235E /* img9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF462302BC1A00C6235E /* img9.jpg */; };
+		C105AF512302BC1A00C6235E /* img8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF472302BC1A00C6235E /* img8.jpg */; };
+		C105AF522302BC1A00C6235E /* img5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF482302BC1A00C6235E /* img5.jpg */; };
+		C105AF532302BC1A00C6235E /* img4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF492302BC1A00C6235E /* img4.jpg */; };
+		C105AF542302BC1A00C6235E /* img6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4A2302BC1A00C6235E /* img6.jpg */; };
+		C105AF552302BC1A00C6235E /* img7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4B2302BC1A00C6235E /* img7.jpg */; };
+		C105AF562302BC1A00C6235E /* img3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4C2302BC1A00C6235E /* img3.jpg */; };
+		C105AF572302BC1A00C6235E /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4D2302BC1A00C6235E /* img2.jpg */; };
+		C105AF582302BC1A00C6235E /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4E2302BC1A00C6235E /* img1.jpg */; };
+		C105AF592302BC1A00C6235E /* img10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4F2302BC1A00C6235E /* img10.jpg */; };
 		EC0ED93F800436740090FCA7 /* Pods_stockMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3115F944F66AEE715C4458 /* Pods_stockMatchUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +106,18 @@
 		C105AF3C23025FE400C6235E /* getOnNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getOnNetManager.m; sourceTree = "<group>"; };
 		C105AF3D23025FE400C6235E /* getOnNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getOnNetManager.h; sourceTree = "<group>"; };
 		C105AF40230260B400C6235E /* LSMBasisConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSMBasisConfiguration.h; sourceTree = "<group>"; };
+		C105AF412302AB2B00C6235E /* YSMCarouselView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMCarouselView.h; sourceTree = "<group>"; };
+		C105AF422302AB2B00C6235E /* YSMCarouselView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMCarouselView.m; sourceTree = "<group>"; };
+		C105AF462302BC1A00C6235E /* img9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img9.jpg; sourceTree = "<group>"; };
+		C105AF472302BC1A00C6235E /* img8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img8.jpg; sourceTree = "<group>"; };
+		C105AF482302BC1A00C6235E /* img5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img5.jpg; sourceTree = "<group>"; };
+		C105AF492302BC1A00C6235E /* img4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img4.jpg; sourceTree = "<group>"; };
+		C105AF4A2302BC1A00C6235E /* img6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img6.jpg; sourceTree = "<group>"; };
+		C105AF4B2302BC1A00C6235E /* img7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img7.jpg; sourceTree = "<group>"; };
+		C105AF4C2302BC1A00C6235E /* img3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img3.jpg; sourceTree = "<group>"; };
+		C105AF4D2302BC1A00C6235E /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
+		C105AF4E2302BC1A00C6235E /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
+		C105AF4F2302BC1A00C6235E /* img10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img10.jpg; sourceTree = "<group>"; };
 		C70370F4AE53F4BE1FECD3F8 /* Pods-stockMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.release.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.release.xcconfig"; sourceTree = "<group>"; };
 		D32858679368DC50BC10FF66 /* Pods-stockMatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.debug.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.debug.xcconfig"; sourceTree = "<group>"; };
 		DF014EFBE222B06A60E5E118 /* Pods_stockMatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stockMatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +200,7 @@
 		C105AED223016AAA00C6235E /* stockMatch */ = {
 			isa = PBXGroup;
 			children = (
+				C105AF442302BC0200C6235E /* Source */,
 				C105AF0D23016BC900C6235E /* Main */,
 				C105AF0C23016BB400C6235E /* Common */,
 				C105AF0A23016B4D00C6235E /* Models */,
@@ -251,6 +275,8 @@
 		C105AF0923016B4300C6235E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C105AF412302AB2B00C6235E /* YSMCarouselView.h */,
+				C105AF422302AB2B00C6235E /* YSMCarouselView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +321,31 @@
 				C105AF3223025F6B00C6235E /* getOnCommonTools.h */,
 			);
 			path = getOnTools;
+			sourceTree = "<group>";
+		};
+		C105AF442302BC0200C6235E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C105AF452302BC1A00C6235E /* SourceImage */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		C105AF452302BC1A00C6235E /* SourceImage */ = {
+			isa = PBXGroup;
+			children = (
+				C105AF462302BC1A00C6235E /* img9.jpg */,
+				C105AF472302BC1A00C6235E /* img8.jpg */,
+				C105AF482302BC1A00C6235E /* img5.jpg */,
+				C105AF492302BC1A00C6235E /* img4.jpg */,
+				C105AF4A2302BC1A00C6235E /* img6.jpg */,
+				C105AF4B2302BC1A00C6235E /* img7.jpg */,
+				C105AF4C2302BC1A00C6235E /* img3.jpg */,
+				C105AF4D2302BC1A00C6235E /* img2.jpg */,
+				C105AF4E2302BC1A00C6235E /* img1.jpg */,
+				C105AF4F2302BC1A00C6235E /* img10.jpg */,
+			);
+			path = SourceImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,8 +455,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C105AF532302BC1A00C6235E /* img4.jpg in Resources */,
+				C105AF582302BC1A00C6235E /* img1.jpg in Resources */,
+				C105AF592302BC1A00C6235E /* img10.jpg in Resources */,
+				C105AF562302BC1A00C6235E /* img3.jpg in Resources */,
 				C105AEE023016AAB00C6235E /* LaunchScreen.storyboard in Resources */,
+				C105AF542302BC1A00C6235E /* img6.jpg in Resources */,
+				C105AF522302BC1A00C6235E /* img5.jpg in Resources */,
+				C105AF552302BC1A00C6235E /* img7.jpg in Resources */,
+				C105AF512302BC1A00C6235E /* img8.jpg in Resources */,
+				C105AF502302BC1A00C6235E /* img9.jpg in Resources */,
 				C105AEDD23016AAB00C6235E /* Assets.xcassets in Resources */,
+				C105AF572302BC1A00C6235E /* img2.jpg in Resources */,
 				C105AEDB23016AAA00C6235E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +580,7 @@
 			files = (
 				C105AF3723025F6B00C6235E /* getOnCommonTools.m in Sources */,
 				C105AF3823025F6B00C6235E /* UIView+Cate.m in Sources */,
+				C105AF432302AB2B00C6235E /* YSMCarouselView.m in Sources */,
 				C105AF182301732500C6235E /* YSMHomeController.m in Sources */,
 				C105AF3F23025FE400C6235E /* getOnNetManager.m in Sources */,
 				C105AF3923025F6B00C6235E /* UIView+Toast.m in Sources */,
