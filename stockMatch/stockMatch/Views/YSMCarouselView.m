@@ -12,6 +12,8 @@
 
 @property(nonatomic, strong) UIScrollView *scrollView;
 
+@property(nonatomic, strong) UIPageControl *page;
+
 @property(nonatomic, assign) NSInteger imageNum;
 
 
@@ -81,6 +83,7 @@
     }
 }
 - (void)addImagesWithUrls:(NSArray<NSString *> *)imageUrls type:(YSMCarouselViewType)type {
+    _imageNum = imageUrls.count;
 //    _imageUrls = imageUrls;
 }
 
