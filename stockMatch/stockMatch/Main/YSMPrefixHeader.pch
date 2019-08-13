@@ -8,7 +8,13 @@
 
 #ifndef YSMPrefixHeader_h
 #define YSMPrefixHeader_h
+
 #import "UIColor+tool.h"
+#import "UIView+Cate.h"
+#import "UIView+Toast.h"
+#import "LSMBasisConfiguration.h"
 #import "LSMColors.h"
+
+#import <AFNetworking/AFNetworking.h>
 
 #endif /* YSMPrefixHeader_h */
