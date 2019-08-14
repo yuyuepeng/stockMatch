@@ -8,6 +8,8 @@
 
 #import "YSMHomeController.h"
 #import "YSMCarouselView.h"
+#import "YSMScrollTextView.h"
+
 @interface YSMHomeController ()<UITableViewDelegate,UITableViewDataSource,YSMCarouselViewDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
@@ -55,7 +57,8 @@
         [carouseView addImages:imgaes];
         [_tableHeader addSubview:carouseView];
         
-        
+        YSMScrollTextView *textView = [[YSMScrollTextView alloc] initWithFrame:CGRectMake(0, carouseView.bottom + 87, ScreenWidth, 500 - carouseView.bottom - 87)];
+        [_tableHeader addSubview:textView];
         
         
         
