@@ -63,7 +63,7 @@
 @end
 
 @implementation YSMScrollTextView {
-//    NSInteger n ;
+    NSInteger currentPage;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -78,31 +78,33 @@
         self.contentOffset = CGPointMake(0, self.height);
 //        n = 1;
         for (NSInteger i = 0; i < self.arr.count; i ++) {
-            YSMScrollContentView *contentView = [[YSMScrollContentView alloc] initWithFrame:CGRectMake(0, self.height * i, self.width, self.height)];
+            YSMScrollContentView *contentView = [[YSMScrollContentView alloc] initWithFrame:CGRectMake(0, self.height * (i + 1), self.width, self.height)];
             contentView.tag = 10000 + i;
+            contentView.contentLabel.text = self.arr[i];
             [self addSubview:contentView];
             
         }
-//        for (NSInteger i = 0; i < images.count; i ++) {
-//            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.width * (i + 1), 0, self.width, self.height)];
-//            imageView.tag = 1000 + i;
-//            [imageView setImage:images[i]];
-//            imageView.userInteractionEnabled = YES;
-//            [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)]];
-//            [self.scrollView addSubview:imageView];
-//        }
-//        [self.scrollView setContentOffset:CGPointMake(self.width, 0)];
+        YSMScrollContentView *left = [[YSMScrollContentView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
+        left.tag = 21;
+        [self addSubview:left];
+        left.contentLabel.text = self.arr[self.arr.count - 1];
+        YSMScrollContentView *right = [[YSMScrollContentView alloc] initWithFrame:CGRectMake(0, self.height * (self.arr.count + 1), self.width, self.height)];
+        right.tag = 22;
+        [self addSubview:right];
+        right.contentLabel.text = self.arr[0];
+
+        currentPage = 0;
         weakenSelf
         if (@available(iOS 10.0, *)) {
             _timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
-                NSInteger index = weakSelf.contentOffset.y/(self.width);
-                if (index == 2) {
+                NSInteger index = self->currentPage;
+                if (index == weakSelf.arr.count + 1) {
                     index = 0;
                 }else {
                     index += 1;
                 }
                
-                [weakSelf setContentOffset:CGPointMake(0, self.height * (index + 1)) animated:YES];
+                [weakSelf setContentOffset:CGPointMake(0, weakSelf.height * (index + 1)) animated:YES];
                 //            NSLog(@"1--%ld",index);
             }];
         } else {
@@ -114,16 +116,34 @@
     return self;
 }
 - (void)repeatAction {
-    NSInteger index = self.contentOffset.y/(self.width);
-    if (index == 2) {
-        index = 0;
+    NSInteger currentPage;
+    if (self.contentOffset.y < self.height ) {
+        currentPage = self.arr.count - 1;
+    }else if (self.contentOffset.y >= (self.height * self.arr.count)) {
+        currentPage = 0;
     }else {
-        index += 1;
+        currentPage = self.contentOffset.y/self.height - 1;
     }
-    [self setContentOffset:CGPointMake(0, self.height * (index + 1)) animated:YES];
+    
+    //                NSInteger index;
+    //                if (currentPage == weakSelf.arr.count + 1) {
+    //                    index = 0;
+    //                }else {
+    //                    index += 1;
+    //                }
+    
+    [self setContentOffset:CGPointMake(0, self.height * (currentPage + 1)) animated:YES];
 
 }
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSInteger num = (self.contentOffset.y + 1)/(self.height);
+    if (num == self.arr.count + 1) {
+        num = 1;
+    }else if(num == 0 ){
+        num = self.arr.count;
+    }
+    currentPage = num - 1;
+}
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     [self scrollViewDidEndDecelerating:scrollView];
 }
@@ -132,10 +152,10 @@
     NSLog(@"%f",self.contentOffset.y);
     CGFloat height = self.height;
     NSInteger numb = (self.contentOffset.y + height * 0.5)/height;
-    if (numb == 2) {
+    if (numb == self.arr.count + 1) {
         [self setContentOffset:CGPointMake(0, height) animated:NO];
     }else if (numb == 0) {
-        [self setContentOffset:CGPointMake(0, height) animated:YES];
+        [self setContentOffset:CGPointMake(0, height * self.arr.count) animated:YES];
     }
     
 }
