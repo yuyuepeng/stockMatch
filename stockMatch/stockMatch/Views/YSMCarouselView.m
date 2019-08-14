@@ -51,19 +51,38 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.width * (i + 1), 0, self.width, self.height)];
         imageView.tag = 1000 + i;
         [imageView setImage:images[i]];
+        imageView.userInteractionEnabled = YES;
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)]];
         [self.scrollView addSubview:imageView];
     }
     [self.scrollView setContentOffset:CGPointMake(self.width, 0)];
     UIImageView *left = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
     left.tag = 11;
+    left.userInteractionEnabled = YES;
+    [left addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)]];
     [left setImage:images[images.count - 1]];
     [self.scrollView addSubview:left];
     UIImageView *right = [[UIImageView alloc] initWithFrame:CGRectMake(self.width * (images.count + 1), 0, self.width, self.height)];
     [right setImage:images[0]];
     right.tag = 12;
+    right.userInteractionEnabled = YES;
+    [right addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)]];
     [self.scrollView addSubview:right];
     [self createPagecontrol];
     [self addTimer];
+    
+}
+- (void)tapClick:(UIGestureRecognizer *)tap {
+    NSInteger tag = tap.view.tag;
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(carouselView:clickWithIndex:)]) {
+        if (tag == 11) {
+            [self.delegate carouselView:self clickWithIndex:_imageNum - 1];
+        }else if (tag == 12) {
+            [self.delegate carouselView:self clickWithIndex:0];
+        }else {
+            [self.delegate carouselView:self clickWithIndex:tag - 1000];
+        }
+    }
     
 }
 - (void)addTimer {
@@ -147,19 +166,29 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.width * (i + 1), 0, self.width, self.height)];
         imageView.tag = 1000 + i;
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrls[i]]];
+        imageView.userInteractionEnabled = YES;
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)]];
         [self.scrollView addSubview:imageView];
     }
     [self.scrollView setContentOffset:CGPointMake(self.width, 0)];
     UIImageView *left = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
     left.tag = 11;
     [left sd_setImageWithURL:[NSURL URLWithString:imageUrls[imageUrls.count - 1]]];
+    left.userInteractionEnabled = YES;
+    [left addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)]];
     [self.scrollView addSubview:left];
+    
+    
     UIImageView *right = [[UIImageView alloc] initWithFrame:CGRectMake(self.width * (imageUrls.count + 1), 0, self.width, self.height)];
-    [left sd_setImageWithURL:[NSURL URLWithString:imageUrls[0]]];
+    right.userInteractionEnabled = YES;
+    [right addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)]];
+    [right sd_setImageWithURL:[NSURL URLWithString:imageUrls[0]]];
     right.tag = 12;
     [self.scrollView addSubview:right];
     [self createPagecontrol];
-    [self addTimer];}
+    [self addTimer];
+    
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -8,7 +8,7 @@
 
 #import "YSMHomeController.h"
 #import "YSMCarouselView.h"
-@interface YSMHomeController ()<UITableViewDelegate,UITableViewDataSource>
+@interface YSMHomeController ()<UITableViewDelegate,UITableViewDataSource,YSMCarouselViewDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
 
@@ -22,31 +22,35 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, Height_NavBar, ScreenWidth, ScreenHeight - Height_NavBar - Height_TabBar) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return _tableView;
 }
 - (UIView *)tableHeader {
     if (_tableHeader == nil) {
-        _tableHeader = [UIView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+        _tableHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 500)];
+        YSMCarouselView *carouseView = [[YSMCarouselView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 200)];
+        carouseView.delegate = self;
+        NSMutableArray *imgaes = [NSMutableArray array];
+        for (NSInteger i = 1; i < 4; i ++) {
+            [imgaes addObject:[UIImage imageNamed:[NSString stringWithFormat:@"img%ld.jpg",i]]];
+        }
+        [carouseView addImages:imgaes];
+        [_tableHeader addSubview:carouseView];
     }
     return _tableHeader;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    YSMCarouselView *carouseView = [[YSMCarouselView alloc] initWithFrame:CGRectMake(0, 100, self.view.width, 100)];
-    NSMutableArray *imgaes = [NSMutableArray array];
-    for (NSInteger i = 1; i < 4; i ++) {
-        [imgaes addObject:[UIImage imageNamed:[NSString stringWithFormat:@"img%ld.jpg",i]]];
-    }
-    [carouseView addImages:imgaes];
-    [self.view addSubview:carouseView];
+    [self createViews];
     // Do any additional setup after loading the view.
 }
 - (void)createViews {
     
     [self createNavigationBarWithTitle:@"首页"];
     [self.view addSubview:self.tableView];
+    
+    self.tableView.tableHeaderView = self.tableHeader;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
    
@@ -62,6 +66,9 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+- (void)carouselView:(YSMCarouselView *)carouselView clickWithIndex:(NSInteger)index {
+    
 }
 /*
 #pragma mark - Navigation
