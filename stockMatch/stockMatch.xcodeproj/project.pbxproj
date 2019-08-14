@@ -18,8 +18,6 @@
 		C105AEF823016AAB00C6235E /* stockMatchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AEF723016AAB00C6235E /* stockMatchUITests.m */; };
 		C105AF15230171E600C6235E /* YSMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF14230171E600C6235E /* YSMTabBarController.m */; };
 		C105AF182301732500C6235E /* YSMHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF172301732500C6235E /* YSMHomeController.m */; };
-		C105AF1B2301734500C6235E /* YSMSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF1A2301734500C6235E /* YSMSelectController.m */; };
-		C105AF1E2301735000C6235E /* YSMMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF1D2301735000C6235E /* YSMMineController.m */; };
 		C105AF212301737400C6235E /* YSMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF202301737400C6235E /* YSMNavigationController.m */; };
 		C105AF24230173C700C6235E /* YSMBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF23230173C700C6235E /* YSMBaseController.m */; };
 		C105AF28230175CB00C6235E /* UIColor+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF27230175CB00C6235E /* UIColor+tool.m */; };
@@ -39,6 +37,8 @@
 		C105AF572302BC1A00C6235E /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4D2302BC1A00C6235E /* img2.jpg */; };
 		C105AF582302BC1A00C6235E /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4E2302BC1A00C6235E /* img1.jpg */; };
 		C105AF592302BC1A00C6235E /* img10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4F2302BC1A00C6235E /* img10.jpg */; };
+		C105AF5C2303A88000C6235E /* YSMInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105AF5B2303A88000C6235E /* YSMInfoController.swift */; };
+		C105AF5E2303A9E300C6235E /* YSMVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105AF5D2303A9E300C6235E /* YSMVideoController.swift */; };
 		EC0ED93F800436740090FCA7 /* Pods_stockMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3115F944F66AEE715C4458 /* Pods_stockMatchUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,10 +84,6 @@
 		C105AF14230171E600C6235E /* YSMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMTabBarController.m; sourceTree = "<group>"; };
 		C105AF162301732500C6235E /* YSMHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMHomeController.h; sourceTree = "<group>"; };
 		C105AF172301732500C6235E /* YSMHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMHomeController.m; sourceTree = "<group>"; };
-		C105AF192301734500C6235E /* YSMSelectController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMSelectController.h; sourceTree = "<group>"; };
-		C105AF1A2301734500C6235E /* YSMSelectController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMSelectController.m; sourceTree = "<group>"; };
-		C105AF1C2301735000C6235E /* YSMMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMMineController.h; sourceTree = "<group>"; };
-		C105AF1D2301735000C6235E /* YSMMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMMineController.m; sourceTree = "<group>"; };
 		C105AF1F2301737400C6235E /* YSMNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMNavigationController.h; sourceTree = "<group>"; };
 		C105AF202301737400C6235E /* YSMNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMNavigationController.m; sourceTree = "<group>"; };
 		C105AF22230173C700C6235E /* YSMBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMBaseController.h; sourceTree = "<group>"; };
@@ -118,6 +114,9 @@
 		C105AF4D2302BC1A00C6235E /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
 		C105AF4E2302BC1A00C6235E /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
 		C105AF4F2302BC1A00C6235E /* img10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img10.jpg; sourceTree = "<group>"; };
+		C105AF5A2303A88000C6235E /* stockMatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stockMatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		C105AF5B2303A88000C6235E /* YSMInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSMInfoController.swift; sourceTree = "<group>"; };
+		C105AF5D2303A9E300C6235E /* YSMVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSMVideoController.swift; sourceTree = "<group>"; };
 		C70370F4AE53F4BE1FECD3F8 /* Pods-stockMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.release.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.release.xcconfig"; sourceTree = "<group>"; };
 		D32858679368DC50BC10FF66 /* Pods-stockMatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.debug.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.debug.xcconfig"; sourceTree = "<group>"; };
 		DF014EFBE222B06A60E5E118 /* Pods_stockMatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stockMatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,14 +259,13 @@
 			children = (
 				C105AF162301732500C6235E /* YSMHomeController.h */,
 				C105AF172301732500C6235E /* YSMHomeController.m */,
-				C105AF192301734500C6235E /* YSMSelectController.h */,
-				C105AF1A2301734500C6235E /* YSMSelectController.m */,
-				C105AF1C2301735000C6235E /* YSMMineController.h */,
-				C105AF1D2301735000C6235E /* YSMMineController.m */,
 				C105AF1F2301737400C6235E /* YSMNavigationController.h */,
 				C105AF202301737400C6235E /* YSMNavigationController.m */,
 				C105AF22230173C700C6235E /* YSMBaseController.h */,
 				C105AF23230173C700C6235E /* YSMBaseController.m */,
+				C105AF5B2303A88000C6235E /* YSMInfoController.swift */,
+				C105AF5D2303A9E300C6235E /* YSMVideoController.swift */,
+				C105AF5A2303A88000C6235E /* stockMatch-Bridging-Header.h */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -419,6 +417,7 @@
 				TargetAttributes = {
 					C105AECF23016AAA00C6235E = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					C105AEE723016AAB00C6235E = {
 						CreatedOnToolsVersion = 10.3;
@@ -585,13 +584,13 @@
 				C105AF3F23025FE400C6235E /* getOnNetManager.m in Sources */,
 				C105AF3923025F6B00C6235E /* UIView+Toast.m in Sources */,
 				C105AEE323016AAB00C6235E /* main.m in Sources */,
-				C105AF1E2301735000C6235E /* YSMMineController.m in Sources */,
 				C105AF15230171E600C6235E /* YSMTabBarController.m in Sources */,
 				C105AF28230175CB00C6235E /* UIColor+tool.m in Sources */,
 				C105AF3E23025FE400C6235E /* getOnNetUrlBuilder.m in Sources */,
+				C105AF5C2303A88000C6235E /* YSMInfoController.swift in Sources */,
 				C105AED523016AAA00C6235E /* AppDelegate.m in Sources */,
-				C105AF1B2301734500C6235E /* YSMSelectController.m in Sources */,
 				C105AF24230173C700C6235E /* YSMBaseController.m in Sources */,
+				C105AF5E2303A9E300C6235E /* YSMVideoController.swift in Sources */,
 				C105AF212301737400C6235E /* YSMNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -764,7 +763,9 @@
 			baseConfigurationReference = D32858679368DC50BC10FF66 /* Pods-stockMatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8858GLHKNB;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/stockMatch/Main/YSMPrefixHeader.pch";
 				INFOPLIST_FILE = stockMatch/Info.plist;
@@ -775,6 +776,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yyp.www.stockMatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "stockMatch/ViewControllers/stockMatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -784,7 +788,9 @@
 			baseConfigurationReference = C70370F4AE53F4BE1FECD3F8 /* Pods-stockMatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8858GLHKNB;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/stockMatch/Main/YSMPrefixHeader.pch";
 				INFOPLIST_FILE = stockMatch/Info.plist;
@@ -795,6 +801,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yyp.www.stockMatch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "stockMatch/ViewControllers/stockMatch-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -803,6 +811,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 466A0B79742127193D4C88C2 /* Pods-stockMatchTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = stockMatchTests/Info.plist;
@@ -822,6 +831,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4980AF1D97A95EF8EC1CB5BC /* Pods-stockMatchTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = stockMatchTests/Info.plist;
@@ -841,6 +851,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E1CBC1B7205375BB1B103B27 /* Pods-stockMatchUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = stockMatchUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -859,6 +870,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3400616B3D0ACF5ADE2A26C4 /* Pods-stockMatchUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = stockMatchUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -16,5 +16,7 @@
 #import "LSMColors.h"
 
 #import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/SDWebImage.h>
+#import "stockMatch-Swift.h"
 
 #endif /* YSMPrefixHeader_h */

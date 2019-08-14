@@ -10,19 +10,45 @@
 
 @interface YSMBaseController ()
 
+@property(nonatomic, strong) UIView *naviBar;
+
+@property(nonatomic, strong) UILabel *titleLabel;
+
+
 @end
 
 @implementation YSMBaseController
-
+- (UIView *)naviBar {
+    if (_naviBar == nil) {
+        _naviBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, Height_NavBar)];
+        _naviBar.backgroundColor = Orange_ThemeColor;
+    }
+    return _naviBar;
+}
+- (UILabel *)titleLabel {
+    if (_titleLabel == nil) {
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, Height_StatusBar, 200, Height_NavBar - Height_StatusBar)];
+        _titleLabel.centerX = ScreenWidth/2;
+        _titleLabel.font = [UIFont systemFontOfSize:17];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textColor = [UIColor whiteColor];
+    }
+    return _titleLabel;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
 //    self.navigationController.navigationBar.shadowImage = [UIImage new];
 //    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
 
     // Do any additional setup after loading the view.
 }
-
+- (void)createNavigationBarWithTitle:(NSString *)title {
+    [self.view addSubview:self.naviBar];
+    [self.view addSubview:self.titleLabel];
+    self.titleLabel.text = title;
+}
 /*
 #pragma mark - Navigation
 

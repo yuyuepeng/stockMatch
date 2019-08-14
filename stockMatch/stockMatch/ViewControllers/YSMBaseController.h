@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YSMBaseController : UIViewController
 
+- (void)createNavigationBarWithTitle:(NSString *)title;
+
 @end
 
 NS_ASSUME_NONNULL_END
