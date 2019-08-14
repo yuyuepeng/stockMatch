@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSMScrollTextModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YSMScrollTextView : UIScrollView
+
+- (instancetype)initWithFrame:(CGRect)frame models:(NSArray <YSMScrollTextModel *>*)models;
+
+- (void)refreshDataWithModels:(NSArray <YSMScrollTextModel *> *)models;
 
 @end
 
