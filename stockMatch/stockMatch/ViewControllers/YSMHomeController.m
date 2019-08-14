@@ -32,11 +32,40 @@
         YSMCarouselView *carouseView = [[YSMCarouselView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 200)];
         carouseView.delegate = self;
         NSMutableArray *imgaes = [NSMutableArray array];
+        CGFloat width = (ScreenWidth - 30)/4;
+        NSArray <NSString *> *imageNames = @[@"zaixianguwen_img",@"kechuangban_img",@"yijiandaxin_img",@"faxian_img"];
+        NSArray <NSString *> *texts = @[@"在线顾问",@"科创板",@"一键打新",@"发现"];
         for (NSInteger i = 1; i < 4; i ++) {
             [imgaes addObject:[UIImage imageNamed:[NSString stringWithFormat:@"img%ld.jpg",i]]];
+           
+        }
+        for (NSInteger i = 0; i < 4; i ++) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15 + width * i, carouseView.bottom + 15, 42 , 42)];
+            imageView.centerX = 15 + width * (i + 0.5);
+            [imageView setImage:[UIImage imageNamed:imageNames[i]]];
+            [_tableHeader addSubview:imageView];
+            
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15 + width * i, imageView.bottom + 5, width, 25)];
+            label.textAlignment = NSTextAlignmentCenter;
+            label.textColor = RGB(51, 51, 51);
+            label.font = [UIFont systemFontOfSize:12];
+            label.text = texts[i];
+            [_tableHeader addSubview:label];
         }
         [carouseView addImages:imgaes];
         [_tableHeader addSubview:carouseView];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     return _tableHeader;
 }
