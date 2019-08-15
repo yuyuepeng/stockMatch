@@ -10,7 +10,10 @@
 #import "YSMCarouselView.h"
 #import "YSMScrollTextView.h"
 
-@interface YSMHomeController ()<UITableViewDelegate,UITableViewDataSource,YSMCarouselViewDelegate>
+#import "YSMHomeFirstCell.h"
+
+
+@interface YSMHomeController ()<UITableViewDelegate,UITableViewDataSource,YSMCarouselViewDelegate,YSMHomeFirstCellDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
 
@@ -35,11 +38,12 @@
 }
 - (UIView *)tableHeader {
     if (_tableHeader == nil) {
-        _tableHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 500)];
+        CGFloat width = (ScreenWidth - 120)/4;
+
+        _tableHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 365 + width)];
         YSMCarouselView *carouseView = [[YSMCarouselView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 200)];
         carouseView.delegate = self;
         NSMutableArray *imgaes = [NSMutableArray array];
-        CGFloat width = (ScreenWidth - 30)/4;
         NSArray <NSString *> *imageNames = @[@"zaixianguwen_img",@"kechuangban_img",@"yijiandaxin_img",@"faxian_img"];
         NSArray <NSString *> *texts = @[@"在线顾问",@"科创板",@"一键打新",@"发现"];
         for (NSInteger i = 1; i < 4; i ++) {
@@ -47,12 +51,11 @@
            
         }
         for (NSInteger i = 0; i < 4; i ++) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15 + width * i, carouseView.bottom + 15, 42 , 42)];
-            imageView.centerX = 15 + width * (i + 0.5);
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15 + (width + 30) * i, carouseView.bottom + 15, width , width)];
             [imageView setImage:[UIImage imageNamed:imageNames[i]]];
             [_tableHeader addSubview:imageView];
             
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15 + width * i, imageView.bottom + 5, width, 25)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15 + (width + 30) * i, imageView.bottom + 5, width, 25)];
             label.textAlignment = NSTextAlignmentCenter;
             label.textColor = RGB(51, 51, 51);
             label.font = [UIFont systemFontOfSize:12];
@@ -61,9 +64,24 @@
         }
         [carouseView addImages:imgaes];
         [_tableHeader addSubview:carouseView];
+        
+        
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, carouseView.bottom + 40 + 10 + width, ScreenWidth - 30, 25)];
+        titleLabel.text = @"实时热点";
+        titleLabel.textAlignment = NSTextAlignmentLeft;
+        titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        titleLabel.textColor = RGB(51, 51, 51);
+        UIView *tiao = [[UIView alloc] initWithFrame:CGRectMake(15, titleLabel.y, 6, 23)];
+        tiao.layer.masksToBounds = YES;
+        tiao.layer.cornerRadius = 3;
+        tiao.backgroundColor = Orange_ThemeColor;
+        [_tableHeader addSubview:tiao];
+        tiao.centerY = titleLabel.centerY;
+        [_tableHeader addSubview:titleLabel];
+        
         NSMutableArray <YSMScrollTextModel *>* models = [NSMutableArray arrayWithArray:[self getData]];
         
-        YSMScrollTextView *textView = [[YSMScrollTextView alloc] initWithFrame:CGRectMake(0, carouseView.bottom + 87, ScreenWidth, 500 - carouseView.bottom - 87) models:models];
+        YSMScrollTextView *textView = [[YSMScrollTextView alloc] initWithFrame:CGRectMake(0, titleLabel.bottom + 5, ScreenWidth, 85) models:models];
         self.scrollTextView = textView;
         [_tableHeader addSubview:textView];
 
@@ -117,20 +135,51 @@
     
     [self.scrollTextView refreshDataWithModels:models];
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-   
+    if (indexPath.row == 0) {
+        return 190;
+    }else if (indexPath.row == 1) {
+        return 380;
+    }else {
+        return 220;
+    }
     return 88;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 3;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellID"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCellID"];
+    YSMHomeFirstCell *cell;
+    if (indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"YSMHomeFirstCellID1"];
+        if (cell == nil) {
+            cell = [[YSMHomeFirstCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YSMHomeFirstCellID1"];
+        }
+        
+    }else if (indexPath.row == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"YSMHomeFirstCellID2"];
+        if (cell == nil) {
+            cell = [[YSMHomeFirstCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YSMHomeFirstCellID2"];
+        }
+        
+    }else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"YSMHomeFirstCellID3"];
+        if (cell == nil) {
+            cell = [[YSMHomeFirstCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"YSMHomeFirstCellID3"];
+        }
+        
     }
+    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+- (void)newsClickWithIndex:(NSInteger)tag {
+    if (tag == 0) {
+        
+    }else {
+        
+    }
 }
 - (void)carouselView:(YSMCarouselView *)carouselView clickWithIndex:(NSInteger)index {
     

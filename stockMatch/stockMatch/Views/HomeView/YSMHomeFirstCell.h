@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YSMHomeFirstCellDelegate <NSObject>
+
+- (void)newsClickWithIndex:(NSInteger)tag;
+
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YSMHomeFirstCell : UITableViewCell
+
+@property(nonatomic, weak) id<YSMHomeFirstCellDelegate>delegate;
 
 @end
 

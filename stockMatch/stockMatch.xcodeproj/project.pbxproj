@@ -11,7 +11,6 @@
 		9B0A0F0DEECD6CA4D1E0A596 /* Pods_stockMatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADA925EBC111CD957137C04 /* Pods_stockMatchTests.framework */; };
 		C105AED523016AAA00C6235E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AED423016AAA00C6235E /* AppDelegate.m */; };
 		C105AEDB23016AAA00C6235E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C105AED923016AAA00C6235E /* Main.storyboard */; };
-		C105AEDD23016AAB00C6235E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C105AEDC23016AAB00C6235E /* Assets.xcassets */; };
 		C105AEE023016AAB00C6235E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C105AEDE23016AAB00C6235E /* LaunchScreen.storyboard */; };
 		C105AEE323016AAB00C6235E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AEE223016AAB00C6235E /* main.m */; };
 		C105AEED23016AAB00C6235E /* stockMatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AEEC23016AAB00C6235E /* stockMatchTests.m */; };
@@ -42,6 +41,8 @@
 		C105AF622303B6C900C6235E /* YSMHomeFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF612303B6C900C6235E /* YSMHomeFirstCell.m */; };
 		C105AF652303FA8E00C6235E /* YSMScrollTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF642303FA8E00C6235E /* YSMScrollTextView.m */; };
 		C105AF682304351C00C6235E /* YSMScrollTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF672304351C00C6235E /* YSMScrollTextModel.m */; };
+		C105AF6A23054BDD00C6235E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C105AF6923054BDD00C6235E /* Assets.xcassets */; };
+		C105AF6D23055A7900C6235E /* YSMWeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF6C23055A7900C6235E /* YSMWeViewController.m */; };
 		EC0ED93F800436740090FCA7 /* Pods_stockMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3115F944F66AEE715C4458 /* Pods_stockMatchUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +73,6 @@
 		C105AED323016AAA00C6235E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C105AED423016AAA00C6235E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C105AEDA23016AAA00C6235E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C105AEDC23016AAB00C6235E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C105AEDF23016AAB00C6235E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C105AEE123016AAB00C6235E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C105AEE223016AAB00C6235E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -126,6 +126,9 @@
 		C105AF642303FA8E00C6235E /* YSMScrollTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMScrollTextView.m; sourceTree = "<group>"; };
 		C105AF662304351C00C6235E /* YSMScrollTextModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMScrollTextModel.h; sourceTree = "<group>"; };
 		C105AF672304351C00C6235E /* YSMScrollTextModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMScrollTextModel.m; sourceTree = "<group>"; };
+		C105AF6923054BDD00C6235E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C105AF6B23055A7900C6235E /* YSMWeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMWeViewController.h; sourceTree = "<group>"; };
+		C105AF6C23055A7900C6235E /* YSMWeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMWeViewController.m; sourceTree = "<group>"; };
 		C70370F4AE53F4BE1FECD3F8 /* Pods-stockMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.release.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.release.xcconfig"; sourceTree = "<group>"; };
 		D32858679368DC50BC10FF66 /* Pods-stockMatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.debug.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.debug.xcconfig"; sourceTree = "<group>"; };
 		DF014EFBE222B06A60E5E118 /* Pods_stockMatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stockMatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,8 +219,8 @@
 				C105AF0823016B2B00C6235E /* ViewControllers */,
 				C105AF0623016B0200C6235E /* Network */,
 				C105AF0523016AF000C6235E /* Bar */,
+				C105AF6923054BDD00C6235E /* Assets.xcassets */,
 				C105AED923016AAA00C6235E /* Main.storyboard */,
-				C105AEDC23016AAB00C6235E /* Assets.xcassets */,
 				C105AEDE23016AAB00C6235E /* LaunchScreen.storyboard */,
 				C105AEE123016AAB00C6235E /* Info.plist */,
 				C105AEE223016AAB00C6235E /* main.m */,
@@ -275,6 +278,8 @@
 				C105AF5B2303A88000C6235E /* YSMInfoController.swift */,
 				C105AF5D2303A9E300C6235E /* YSMVideoController.swift */,
 				C105AF5A2303A88000C6235E /* stockMatch-Bridging-Header.h */,
+				C105AF6B23055A7900C6235E /* YSMWeViewController.h */,
+				C105AF6C23055A7900C6235E /* YSMWeViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -483,11 +488,11 @@
 				C105AF562302BC1A00C6235E /* img3.jpg in Resources */,
 				C105AEE023016AAB00C6235E /* LaunchScreen.storyboard in Resources */,
 				C105AF542302BC1A00C6235E /* img6.jpg in Resources */,
+				C105AF6A23054BDD00C6235E /* Assets.xcassets in Resources */,
 				C105AF522302BC1A00C6235E /* img5.jpg in Resources */,
 				C105AF552302BC1A00C6235E /* img7.jpg in Resources */,
 				C105AF512302BC1A00C6235E /* img8.jpg in Resources */,
 				C105AF502302BC1A00C6235E /* img9.jpg in Resources */,
-				C105AEDD23016AAB00C6235E /* Assets.xcassets in Resources */,
 				C105AF572302BC1A00C6235E /* img2.jpg in Resources */,
 				C105AEDB23016AAA00C6235E /* Main.storyboard in Resources */,
 			);
@@ -606,6 +611,7 @@
 				C105AF652303FA8E00C6235E /* YSMScrollTextView.m in Sources */,
 				C105AF182301732500C6235E /* YSMHomeController.m in Sources */,
 				C105AF3F23025FE400C6235E /* getOnNetManager.m in Sources */,
+				C105AF6D23055A7900C6235E /* YSMWeViewController.m in Sources */,
 				C105AF3923025F6B00C6235E /* UIView+Toast.m in Sources */,
 				C105AEE323016AAB00C6235E /* main.m in Sources */,
 				C105AF622303B6C900C6235E /* YSMHomeFirstCell.m in Sources */,

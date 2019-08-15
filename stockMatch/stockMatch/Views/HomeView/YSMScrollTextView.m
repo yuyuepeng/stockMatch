@@ -29,7 +29,7 @@
 }
 - (UILabel *)contentLabel {
     if (_contentLabel == nil) {
-        _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.timeLabel.bottom + 10, self.width - 30, 50)];
+        _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, self.timeLabel.bottom + 5, self.width - 30, 50)];
         _contentLabel.textColor = RGB(51, 51, 51);
         _contentLabel.font = [UIFont boldSystemFontOfSize:14];
         _contentLabel.textAlignment = NSTextAlignmentLeft;
@@ -97,7 +97,7 @@
         currentPage = 0;
         weakenSelf
         if (@available(iOS 10.0, *)) {
-            _timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            _timer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:YES block:^(NSTimer * _Nonnull timer) {
                 NSInteger index = self->currentPage;
                 if (index == weakSelf.models.count + 1) {
                     index = 0;
