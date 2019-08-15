@@ -11,6 +11,7 @@
 #import "YSMScrollTextView.h"
 
 #import "YSMHomeFirstCell.h"
+#import "YSMWebViewController.h"
 
 
 @interface YSMHomeController ()<UITableViewDelegate,UITableViewDataSource,YSMCarouselViewDelegate,YSMHomeFirstCellDelegate>
@@ -175,11 +176,14 @@
     return cell;
 }
 - (void)newsClickWithIndex:(NSInteger)tag {
+    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
     if (tag == 0) {
-        
+        webVC.urlString = @"http://m.sohu.com/a/333861709_561871?_f=m-sub_channel_997_feeds_1&scm=0.0.0.0&spm=smwp.ch15-997.fd-s.1.1565851625466jvzd4ji";
     }else {
-        
+        webVC.urlString = @"http://m.sohu.com/a/333871426_561670?_f=m-sub_channel_997_feeds_7&scm=0.0.0.0&spm=smwp.ch15-997.fd-s.7.1565851625466jvzd4ji";
     }
+    [self.navigationController pushViewController:webVC animated:YES];
+
 }
 - (void)carouselView:(YSMCarouselView *)carouselView clickWithIndex:(NSInteger)index {
     

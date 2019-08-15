@@ -14,6 +14,7 @@
 
 @property(nonatomic, strong) UILabel *titleLabel;
 
+@property(nonatomic, strong) UIButton *backButton;
 
 @end
 
@@ -44,10 +45,28 @@
 
     // Do any additional setup after loading the view.
 }
+- (UIButton *)backButton {
+    if (_backButton == nil) {
+        _backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, Height_StatusBar, 44, 44)];
+        [_backButton setImage:[UIImage imageNamed:@"nav_leftBtn_white"] forState:UIControlStateNormal];
+    }
+    return _backButton;
+}
+- (void)addLeftButtonWithAction {
+    [self.naviBar addSubview:self.backButton];
+    [self.backButton addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
+}
+- (void)pop {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)createNavigationBarWithTitle:(NSString *)title {
     [self.view addSubview:self.naviBar];
     [self.view addSubview:self.titleLabel];
     self.titleLabel.text = title;
+}
+- (void)setNavTitle:(NSString *)navTitle {
+    _navTitle = navTitle;
+    self.titleLabel.text = navTitle;
 }
 /*
 #pragma mark - Navigation

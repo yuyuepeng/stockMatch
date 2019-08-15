@@ -12,8 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YSMBaseController : UIViewController
 
+@property(nonatomic, copy) NSString *navTitle;
+
 - (void)createNavigationBarWithTitle:(NSString *)title;
 
+- (void)addLeftButtonWithAction;
+// 返回上一层控制器的方法  可重写
+- (void)pop;
 @end
 
 NS_ASSUME_NONNULL_END

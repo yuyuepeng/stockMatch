@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YSMWeViewController : YSMBaseController
+@interface YSMWebViewController : YSMBaseController
+
+@property (nonatomic, copy) NSString *urlString;
 
 @end
 
