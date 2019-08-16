@@ -13,6 +13,7 @@
 #import "YSMHomeFirstCell.h"
 #import "YSMWebViewController.h"
 
+#import "YSMTWebViewController.h"
 
 @interface YSMHomeController ()<UITableViewDelegate,UITableViewDataSource,YSMCarouselViewDelegate,YSMHomeFirstCellDelegate>
 
@@ -46,15 +47,18 @@
         carouseView.delegate = self;
         NSMutableArray *imgaes = [NSMutableArray array];
         NSArray <NSString *> *imageNames = @[@"zaixianguwen_img",@"kechuangban_img",@"yijiandaxin_img",@"faxian_img"];
-        NSArray <NSString *> *texts = @[@"在线顾问",@"科创板",@"一键打新",@"发现"];
+        NSArray <NSString *> *texts = @[@"人工智能",@"科创板",@"区块链",@"5G"];
         for (NSInteger i = 1; i < 4; i ++) {
-            [imgaes addObject:[UIImage imageNamed:[NSString stringWithFormat:@"img%ld.jpg",i]]];
+            [imgaes addObject:[UIImage imageNamed:[NSString stringWithFormat:@"img%ld",i]]];
            
         }
         for (NSInteger i = 0; i < 4; i ++) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15 + (width + 30) * i, carouseView.bottom + 15, width , width)];
             [imageView setImage:[UIImage imageNamed:imageNames[i]]];
+            imageView.tag = 50 + i;
             [_tableHeader addSubview:imageView];
+            imageView.userInteractionEnabled = YES;
+            [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dianjiTap:)]];
             
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15 + (width + 30) * i, imageView.bottom + 5, width, 25)];
             label.textAlignment = NSTextAlignmentCenter;
@@ -62,6 +66,10 @@
             label.font = [UIFont systemFontOfSize:12];
             label.text = texts[i];
             [_tableHeader addSubview:label];
+            
+            label.tag = 60 + i;
+            label.userInteractionEnabled = YES;
+            [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dianjiTap:)]];
         }
         [carouseView addImages:imgaes];
         [_tableHeader addSubview:carouseView];
@@ -88,6 +96,21 @@
 
     }
     return _tableHeader;
+}
+- (void)dianjiTap:(UITapGestureRecognizer *)gesture {
+     NSArray <NSString *>*urls = @[@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11060009",@"https://gu.qq.com/resources/shy/news/subject/index.html#/index?id=SN2018120509371955f63c54&s=b&wxurl=qqstock%3A%2F%2Fnewsspecial%2F%2F%2FSN2018120509371955f63c54%2F%2F%2F%2F&pagetype=share",@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11060007",@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11100002"];
+    NSInteger tag = [[[NSString stringWithFormat:@"%ld",gesture.view.tag] substringFromIndex:1] integerValue];
+    if (tag == 1) {
+        YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+        webVC.urlString = urls[tag];
+        [self.navigationController pushViewController:webVC animated:YES];
+    }else {
+        YSMTWebViewController *webVC = [[YSMTWebViewController alloc] init];
+        webVC.urlString = urls[tag];
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
+  
+   
 }
 - (NSArray <YSMScrollTextModel *>*)getData {
     NSMutableArray <YSMScrollTextModel *>* models = [NSMutableArray array];
@@ -178,15 +201,31 @@
 - (void)newsClickWithIndex:(NSInteger)tag {
     YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
     if (tag == 0) {
-        webVC.urlString = @"http://m.sohu.com/a/333861709_561871?_f=m-sub_channel_997_feeds_1&scm=0.0.0.0&spm=smwp.ch15-997.fd-s.1.1565851625466jvzd4ji";
+        webVC.urlString = @"https://sjzqshare.csc108.com/api/news20/share?newsId=15659166018868601&funType=L295&cpid=000000";
     }else {
-        webVC.urlString = @"http://m.sohu.com/a/333871426_561670?_f=m-sub_channel_997_feeds_7&scm=0.0.0.0&spm=smwp.ch15-997.fd-s.7.1565851625466jvzd4ji";
+        webVC.urlString = @"https://sjzqshare.csc108.com/api/news20/share?newsId=15659160018868582&funType=L295&cpid=000000";
     }
     [self.navigationController pushViewController:webVC animated:YES];
 
 }
 - (void)carouselView:(YSMCarouselView *)carouselView clickWithIndex:(NSInteger)index {
-    
+    NSArray <NSString *>*urls = @[@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543331&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543353&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543337&comefrom=fenxiang"];
+    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+    webVC.urlString = urls[index];
+    [self.navigationController pushViewController:webVC animated:YES];
+}
+- (void)guandianWithIndex:(NSInteger)tag {
+    NSArray <NSString *>*urls = @[@"https://atougu.csc108.com/tgreport/report-share/3211",@"https://atougu.csc108.com/tgreport/report-share/3210"];
+    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+    webVC.urlString = urls[tag];
+    [self.navigationController pushViewController:webVC animated:YES];
+   
+}
+- (void)zixunClickWithIndex:(NSInteger)tag {
+    NSArray <NSString *>*urls = @[@"https://s1.huanyingzq.com/news/13883?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13885?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13882?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13878?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1"];
+    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+    webVC.urlString = urls[tag];
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 /*
 #pragma mark - Navigation

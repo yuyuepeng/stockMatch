@@ -26,16 +26,6 @@
 		C105AF3E23025FE400C6235E /* getOnNetUrlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF3A23025FE400C6235E /* getOnNetUrlBuilder.m */; };
 		C105AF3F23025FE400C6235E /* getOnNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF3C23025FE400C6235E /* getOnNetManager.m */; };
 		C105AF432302AB2B00C6235E /* YSMCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF422302AB2B00C6235E /* YSMCarouselView.m */; };
-		C105AF502302BC1A00C6235E /* img9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF462302BC1A00C6235E /* img9.jpg */; };
-		C105AF512302BC1A00C6235E /* img8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF472302BC1A00C6235E /* img8.jpg */; };
-		C105AF522302BC1A00C6235E /* img5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF482302BC1A00C6235E /* img5.jpg */; };
-		C105AF532302BC1A00C6235E /* img4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF492302BC1A00C6235E /* img4.jpg */; };
-		C105AF542302BC1A00C6235E /* img6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4A2302BC1A00C6235E /* img6.jpg */; };
-		C105AF552302BC1A00C6235E /* img7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4B2302BC1A00C6235E /* img7.jpg */; };
-		C105AF562302BC1A00C6235E /* img3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4C2302BC1A00C6235E /* img3.jpg */; };
-		C105AF572302BC1A00C6235E /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4D2302BC1A00C6235E /* img2.jpg */; };
-		C105AF582302BC1A00C6235E /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4E2302BC1A00C6235E /* img1.jpg */; };
-		C105AF592302BC1A00C6235E /* img10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C105AF4F2302BC1A00C6235E /* img10.jpg */; };
 		C105AF5C2303A88000C6235E /* YSMInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105AF5B2303A88000C6235E /* YSMInfoController.swift */; };
 		C105AF5E2303A9E300C6235E /* YSMVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C105AF5D2303A9E300C6235E /* YSMVideoController.swift */; };
 		C105AF622303B6C900C6235E /* YSMHomeFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF612303B6C900C6235E /* YSMHomeFirstCell.m */; };
@@ -43,6 +33,7 @@
 		C105AF682304351C00C6235E /* YSMScrollTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF672304351C00C6235E /* YSMScrollTextModel.m */; };
 		C105AF6A23054BDD00C6235E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C105AF6923054BDD00C6235E /* Assets.xcassets */; };
 		C105AF6D23055A7900C6235E /* YSMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF6C23055A7900C6235E /* YSMWebViewController.m */; };
+		C105AF7023065B5900C6235E /* YSMTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C105AF6F23065B5900C6235E /* YSMTWebViewController.m */; };
 		EC0ED93F800436740090FCA7 /* Pods_stockMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3115F944F66AEE715C4458 /* Pods_stockMatchUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,16 +98,6 @@
 		C105AF40230260B400C6235E /* LSMBasisConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSMBasisConfiguration.h; sourceTree = "<group>"; };
 		C105AF412302AB2B00C6235E /* YSMCarouselView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMCarouselView.h; sourceTree = "<group>"; };
 		C105AF422302AB2B00C6235E /* YSMCarouselView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMCarouselView.m; sourceTree = "<group>"; };
-		C105AF462302BC1A00C6235E /* img9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img9.jpg; sourceTree = "<group>"; };
-		C105AF472302BC1A00C6235E /* img8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img8.jpg; sourceTree = "<group>"; };
-		C105AF482302BC1A00C6235E /* img5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img5.jpg; sourceTree = "<group>"; };
-		C105AF492302BC1A00C6235E /* img4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img4.jpg; sourceTree = "<group>"; };
-		C105AF4A2302BC1A00C6235E /* img6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img6.jpg; sourceTree = "<group>"; };
-		C105AF4B2302BC1A00C6235E /* img7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img7.jpg; sourceTree = "<group>"; };
-		C105AF4C2302BC1A00C6235E /* img3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img3.jpg; sourceTree = "<group>"; };
-		C105AF4D2302BC1A00C6235E /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
-		C105AF4E2302BC1A00C6235E /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
-		C105AF4F2302BC1A00C6235E /* img10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img10.jpg; sourceTree = "<group>"; };
 		C105AF5A2303A88000C6235E /* stockMatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stockMatch-Bridging-Header.h"; sourceTree = "<group>"; };
 		C105AF5B2303A88000C6235E /* YSMInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSMInfoController.swift; sourceTree = "<group>"; };
 		C105AF5D2303A9E300C6235E /* YSMVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSMVideoController.swift; sourceTree = "<group>"; };
@@ -129,6 +110,8 @@
 		C105AF6923054BDD00C6235E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C105AF6B23055A7900C6235E /* YSMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMWebViewController.h; sourceTree = "<group>"; };
 		C105AF6C23055A7900C6235E /* YSMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMWebViewController.m; sourceTree = "<group>"; };
+		C105AF6E23065B5900C6235E /* YSMTWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMTWebViewController.h; sourceTree = "<group>"; };
+		C105AF6F23065B5900C6235E /* YSMTWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMTWebViewController.m; sourceTree = "<group>"; };
 		C70370F4AE53F4BE1FECD3F8 /* Pods-stockMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.release.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.release.xcconfig"; sourceTree = "<group>"; };
 		D32858679368DC50BC10FF66 /* Pods-stockMatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.debug.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.debug.xcconfig"; sourceTree = "<group>"; };
 		DF014EFBE222B06A60E5E118 /* Pods_stockMatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stockMatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +263,8 @@
 				C105AF5A2303A88000C6235E /* stockMatch-Bridging-Header.h */,
 				C105AF6B23055A7900C6235E /* YSMWebViewController.h */,
 				C105AF6C23055A7900C6235E /* YSMWebViewController.m */,
+				C105AF6E23065B5900C6235E /* YSMTWebViewController.h */,
+				C105AF6F23065B5900C6235E /* YSMTWebViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -341,26 +326,8 @@
 		C105AF442302BC0200C6235E /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C105AF452302BC1A00C6235E /* SourceImage */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		C105AF452302BC1A00C6235E /* SourceImage */ = {
-			isa = PBXGroup;
-			children = (
-				C105AF462302BC1A00C6235E /* img9.jpg */,
-				C105AF472302BC1A00C6235E /* img8.jpg */,
-				C105AF482302BC1A00C6235E /* img5.jpg */,
-				C105AF492302BC1A00C6235E /* img4.jpg */,
-				C105AF4A2302BC1A00C6235E /* img6.jpg */,
-				C105AF4B2302BC1A00C6235E /* img7.jpg */,
-				C105AF4C2302BC1A00C6235E /* img3.jpg */,
-				C105AF4D2302BC1A00C6235E /* img2.jpg */,
-				C105AF4E2302BC1A00C6235E /* img1.jpg */,
-				C105AF4F2302BC1A00C6235E /* img10.jpg */,
-			);
-			path = SourceImage;
 			sourceTree = "<group>";
 		};
 		C105AF5F2303B68600C6235E /* HomeView */ = {
@@ -482,18 +449,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C105AF532302BC1A00C6235E /* img4.jpg in Resources */,
-				C105AF582302BC1A00C6235E /* img1.jpg in Resources */,
-				C105AF592302BC1A00C6235E /* img10.jpg in Resources */,
-				C105AF562302BC1A00C6235E /* img3.jpg in Resources */,
 				C105AEE023016AAB00C6235E /* LaunchScreen.storyboard in Resources */,
-				C105AF542302BC1A00C6235E /* img6.jpg in Resources */,
 				C105AF6A23054BDD00C6235E /* Assets.xcassets in Resources */,
-				C105AF522302BC1A00C6235E /* img5.jpg in Resources */,
-				C105AF552302BC1A00C6235E /* img7.jpg in Resources */,
-				C105AF512302BC1A00C6235E /* img8.jpg in Resources */,
-				C105AF502302BC1A00C6235E /* img9.jpg in Resources */,
-				C105AF572302BC1A00C6235E /* img2.jpg in Resources */,
 				C105AEDB23016AAA00C6235E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +574,7 @@
 				C105AF622303B6C900C6235E /* YSMHomeFirstCell.m in Sources */,
 				C105AF15230171E600C6235E /* YSMTabBarController.m in Sources */,
 				C105AF28230175CB00C6235E /* UIColor+tool.m in Sources */,
+				C105AF7023065B5900C6235E /* YSMTWebViewController.m in Sources */,
 				C105AF3E23025FE400C6235E /* getOnNetUrlBuilder.m in Sources */,
 				C105AF5C2303A88000C6235E /* YSMInfoController.swift in Sources */,
 				C105AED523016AAA00C6235E /* AppDelegate.m in Sources */,

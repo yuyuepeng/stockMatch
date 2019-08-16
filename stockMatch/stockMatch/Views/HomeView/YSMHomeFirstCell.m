@@ -71,12 +71,39 @@
     self.titleLabel.text = @"今日资讯";
     [self addSubview:self.tiao];
     [self addSubview:self.scrollView1];
+    NSArray <NSString *> *titleArr = @[@"内地券商料猪价续涨，万洲国际涨逾2%",@"中国平安首席财务官姚波：回购不是常态",@"南下资金8月累计净买已创年内新高",@"微信支付宝掀移动支付争夺战"];
+
+    
     for (NSInteger i = 0; i < 4; i ++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(210 * i, 0, 200, 140)];
         imageView.tag = 20 + i;
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.backgroundColor = [UIColor orangeColor];
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"zixun_img%ld",i]];
         [self.scrollView1 addSubview:imageView];
+        imageView.userInteractionEnabled = YES;
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ziXunClick:)]];
+        
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(210 * i, 0, 200, 30)];
+        view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+        [self.scrollView1 addSubview:view];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(210 * i + 5, 5, 195, 25) ];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.font = [UIFont systemFontOfSize:16];
+        label.textColor = [UIColor whiteColor];
+        label.numberOfLines = 0;
+        label.text = titleArr[i];
+        label.tag = 10+i;
+        label.userInteractionEnabled = YES;
+        [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ziXunClick:)]];
+        [self.scrollView1 addSubview:label];
+
+    }
+}
+- (void)ziXunClick:(UITapGestureRecognizer *)tap {
+    NSInteger tag = [[[NSString stringWithFormat:@"%ld",(long)tap.view.tag] substringFromIndex:1] integerValue];
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(zixunClickWithIndex:)]) {
+        [self.delegate zixunClickWithIndex:tag];
     }
 }
 - (void)createViews2 {
@@ -84,12 +111,35 @@
     self.tiao.centerY = self.titleLabel.centerY;
     self.titleLabel.text = @"热门观点";
     [self addSubview:self.tiao];
-    
+    NSArray <NSString *> *titleArr = @[@"科技股有望展开秋收行情",@"券商股能“入手”吗？"];
+
     for (NSInteger i = 0; i < 2; i ++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 50 + 170 * i, ScreenWidth - 30, 160)];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.backgroundColor = [UIColor redColor];
+        imageView.userInteractionEnabled = YES;
+        imageView.tag = 60 + i;
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"guandian_img%ld",i]];
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(guanDianClick:)]];
+
         [self addSubview:imageView];
+        
+        
+        
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 175 + 170 * i, ScreenWidth - 40, 25) ];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.font = [UIFont systemFontOfSize:16];
+        label.textColor = [UIColor whiteColor];
+        label.text = titleArr[i];
+        label.tag = 10+i;
+        label.userInteractionEnabled = YES;
+        [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(guanDianClick:)]];
+        [self addSubview:label];
+    }
+}
+- (void)guanDianClick:(UITapGestureRecognizer *)tap {
+    NSInteger tag = [[[NSString stringWithFormat:@"%ld",(long)tap.view.tag] substringFromIndex:1] integerValue];
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(guandianWithIndex:)]) {
+        [self.delegate guandianWithIndex:tag];
     }
 }
 - (void)createViews3 {
@@ -97,7 +147,7 @@
     self.tiao.centerY = self.titleLabel.centerY;
     self.titleLabel.text = @"今日要闻";
     [self addSubview:self.tiao];
-    NSArray <NSString *>* arr = @[@"MSCI林伟杰：ESG的中国“摩”力",@"A股探底回升沪指跌0.62% 医药板块表现亮眼"];
+    NSArray <NSString *>* arr = @[@"人民日报海外版：房地产市场念好“稳字诀”",@"美股三大指涨跌互现 美国经济亮起黄灯"];
 
     
     for (NSInteger i = 0; i < 2; i ++) {
@@ -124,11 +174,11 @@
         [timeLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(newsClick:)]];
 
         NSInteger hour = [[[self getNowTime] substringWithRange:NSMakeRange(11, 2)] integerValue] - 1;
-        timeLabel.text = [NSString stringWithFormat:@"%ld:%d",hour,arc4random()%30 + 30];
+        timeLabel.text = [NSString stringWithFormat:@"%ld:%d",(long)hour,arc4random()%30 + 30];
         [view addSubview:timeLabel];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(view.width - 160, 0, 160, view.height)];
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"gupiao_img%ld",i]];
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"gupiao_img%ld",(long)i]];
         imageView.tag = 30 + i;
         imageView.userInteractionEnabled = YES;
         [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(newsClick:)]];
@@ -141,7 +191,7 @@
     }
 }
 - (void)newsClick:(UITapGestureRecognizer *)gesture {
-    NSInteger tag = [[[NSString stringWithFormat:@"%ld",gesture.view.tag] substringFromIndex:1] integerValue];
+    NSInteger tag = [[[NSString stringWithFormat:@"%ld",(long)gesture.view.tag] substringFromIndex:1] integerValue];
     if (self.delegate &&[self.delegate respondsToSelector:@selector(newsClickWithIndex:)]) {
         [self.delegate newsClickWithIndex:tag];
     }

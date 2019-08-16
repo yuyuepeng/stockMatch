@@ -12,6 +12,10 @@
 
 - (void)newsClickWithIndex:(NSInteger)tag;
 
+- (void)guandianWithIndex:(NSInteger)tag;
+
+- (void)zixunClickWithIndex:(NSInteger)tag;
+
 @end
 
 NS_ASSUME_NONNULL_BEGIN

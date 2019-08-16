@@ -1,20 +1,20 @@
 //
-//  YSMWeViewController.m
+//  YSMTWebViewController.m
 //  stockMatch
 //
-//  Created by 玉岳鹏 on 2019/8/15.
+//  Created by 玉岳鹏 on 2019/8/16.
 //  Copyright © 2019 玉岳鹏. All rights reserved.
 //
 
-#import "YSMWebViewController.h"
+#import "YSMTWebViewController.h"
 #import <WebKit/WebKit.h>
-@interface YSMWebViewController ()
 
+@interface YSMTWebViewController ()
 @property(nonatomic, strong) WKWebView *webView;
 
 @end
 
-@implementation YSMWebViewController
+@implementation YSMTWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,8 +29,9 @@
 - (void)configSubview{
     _webView = [[WKWebView alloc] init];
     
-    _webView.frame = CGRectMake(0, Height_NavBar, ScreenWidth, ScreenHeight - Height_NavBar);
+    _webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     [self.view addSubview:_webView];
+    self.webView.scrollView.bounces = NO;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, ScreenHeight - Height_TabBar - 20, ScreenWidth, Height_TabBar + 20)];
     label.text = @"感谢您的阅读与支持，😁";
     label.textAlignment = NSTextAlignmentCenter;
@@ -61,6 +62,7 @@
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
+
 /*
 #pragma mark - Navigation
 
