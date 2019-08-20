@@ -9,8 +9,9 @@
 #import "getOnNetUrlBuilder.h"
 //NSString *const baseUrl = @"http://ek7efpZ.91xianpai.com";
 //NSString *const baseUrl = @"http://api.geton.com/v1";
-NSString *const baseUrl = @"http://172.16.1.16:8080/v1";
+//NSString *const baseUrl = @"http://172.16.1.16:8080/v1";
 //NSString *const baseUrl = @"http://172.16.1.112:9080/geton_crm";
+NSString *const baseUrl = @"https://www.easy-mock.com/mock/5d5b53242c32cf1d296d19c3/example";
 
 
 @implementation getOnNetUrlBuilder
@@ -77,7 +78,7 @@ NSString *const baseUrl = @"http://172.16.1.16:8080/v1";
             return @"/car/buy";
             break;
         case getOnNetUrlBuilderTypeTest:
-            return @"/app/login";
+            return @"/query";
             break;
         default:
             break;

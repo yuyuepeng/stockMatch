@@ -47,6 +47,7 @@ typedef NS_ENUM(NSInteger, getOnNetUrlBuilderType) {
     getOnNetUrlBuilderTypeBuyCarTwo,
     //测试
     getOnNetUrlBuilderTypeTest
+    
 };
 
 @interface getOnNetUrlBuilder : NSObject

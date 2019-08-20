@@ -135,6 +135,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createViews];
+    [[getOnNetManager shareManager] getWithPathtype:getOnNetUrlBuilderTypeTest pathPage:@"" succeed:^(NSInteger status, id response) {
+        
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];
     // Do any additional setup after loading the view.
 }
 - (void)createViews {

@@ -62,6 +62,11 @@ static getOnNetManager *netManager;
     [[getOnNetManager shareManager].manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"progress -  %@",downloadProgress.localizedDescription);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+       NSInteger successCode = [[responseObject objectForKey:@"success"] integerValue];
+        if (successCode) {
+            success(1, [responseObject objectForKey:@"data"]);
+            return ;
+        }
         NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
         NSString *msg = [NSString stringWithFormat:@"%@", [responseObject objectForKey:@"message"]];
         if ( code == 200) {
