@@ -27,6 +27,9 @@ typedef void(^Failure)(NSInteger code, NSString *msg);
 
 - (void)getWithPathtype:(getOnNetUrlBuilderType)pathType parameters:(NSDictionary *)parameters succeed:(Success)success fail:(Failure)failure;
 
+- (void)getEasyNetWithPathtype:(getOnNetUrlBuilderType)pathType parameters:(NSDictionary *)parameters succeed:(Success)success fail:(Failure)failure;
+
+
 - (void)getWithPathtype:(getOnNetUrlBuilderType)pathType pathPage:(NSString *)page succeed:(Success)success fail:(Failure)failure;
 
 //- (void)getWithPathtype:(getOnNetUrlBuilderType)pathType spellType:(getOnNetUrlBuilderSpellType)spelltype parameters:(NSDictionary *)parameters succeed:(Success)success fail:(Failure)failure;

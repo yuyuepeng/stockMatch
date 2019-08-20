@@ -46,7 +46,10 @@ typedef NS_ENUM(NSInteger, getOnNetUrlBuilderType) {
     //退出登录
     getOnNetUrlBuilderTypeBuyCarTwo,
     //测试
-    getOnNetUrlBuilderTypeTest
+    getOnNetUrlBuilderTypeTest,
+    
+    //测试
+    getOnNetUrlBuilderTypeHomePage
     
 };
 

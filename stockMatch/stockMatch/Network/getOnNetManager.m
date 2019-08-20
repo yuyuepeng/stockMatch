@@ -62,11 +62,6 @@ static getOnNetManager *netManager;
     [[getOnNetManager shareManager].manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         NSLog(@"progress -  %@",downloadProgress.localizedDescription);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-       NSInteger successCode = [[responseObject objectForKey:@"success"] integerValue];
-        if (successCode) {
-            success(1, [responseObject objectForKey:@"data"]);
-            return ;
-        }
         NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
         NSString *msg = [NSString stringWithFormat:@"%@", [responseObject objectForKey:@"message"]];
         if ( code == 200) {
@@ -206,5 +201,32 @@ static getOnNetManager *netManager;
         [url appendString:token];
     }
     return url;
+}
+- (void)getEasyNetWithPathtype:(getOnNetUrlBuilderType)pathType parameters:(NSDictionary *)parameters succeed:(Success)success fail:(Failure)failure {
+    NSString *token = @"";
+    NSString *url = [getOnNetUrlBuilder urlWithPathType:pathType];
+    NSMutableString *mutableUrl = [NSMutableString stringWithFormat:@"%@",[self baseUrl:url path:nil parameters:parameters token:token]];
+    url = mutableUrl;
+    NSLog(@"url --- %@",url);
+    [[getOnNetManager shareManager].manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"progress -  %@",downloadProgress.localizedDescription);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSInteger successCode = [[responseObject objectForKey:@"success"] integerValue];
+        if (successCode) {
+            success(1, [responseObject objectForKey:@"data"]);
+            return ;
+        }
+        NSInteger code = [[responseObject objectForKey:@"code"] integerValue];
+        NSString *msg = [NSString stringWithFormat:@"%@", [responseObject objectForKey:@"message"]];
+        if ( code == 200) {
+            success(1, [responseObject objectForKey:@"data"]);
+        }else if(code == 404||code == 204){
+            failure(code,msg);
+        }else {
+            failure(2,msg);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(0, error.description);
+    }];
 }
 @end

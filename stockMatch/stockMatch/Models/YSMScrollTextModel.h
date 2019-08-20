@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *time;
 
+@property(nonatomic, copy) NSString *title;
+
 @property(nonatomic, copy) NSString *content;
 
 @end

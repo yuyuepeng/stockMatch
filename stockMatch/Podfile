@@ -6,6 +6,7 @@ target 'stockMatch' do
   use_frameworks!
 pod 'AFNetworking', '~> 3.2.1'
 pod 'SDWebImage'
+pod 'MJExtension'
   # Pods for stockMatch
 
   target 'stockMatchTests' do

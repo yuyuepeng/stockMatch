@@ -12,6 +12,7 @@
 //NSString *const baseUrl = @"http://172.16.1.16:8080/v1";
 //NSString *const baseUrl = @"http://172.16.1.112:9080/geton_crm";
 NSString *const baseUrl = @"https://www.easy-mock.com/mock/5d5b53242c32cf1d296d19c3/example";
+NSString *const esayBaseUrl = @"https://www.easy-mock.com/mock/5d5b53242c32cf1d296d19c3/example";
 
 
 @implementation getOnNetUrlBuilder
@@ -79,6 +80,9 @@ NSString *const baseUrl = @"https://www.easy-mock.com/mock/5d5b53242c32cf1d296d1
             break;
         case getOnNetUrlBuilderTypeTest:
             return @"/query";
+            break;
+        case getOnNetUrlBuilderTypeHomePage:
+            return @"/homePagelData";
             break;
         default:
             break;
