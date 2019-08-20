@@ -21,7 +21,7 @@
     [self configSubview];
     
     [self LoadWebView];
-    [self createNavigationBarWithTitle:@""];
+    [self createNavigationBarWithTitle:@"详情"];
     [self addLeftButtonWithAction];
     // Do any additional setup after loading the view.
 }

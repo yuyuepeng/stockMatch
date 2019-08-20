@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *urlString;
 
+@property (nonatomic, copy) NSString *titleStr;
+
+@property (nonatomic, copy) NSString *contentStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

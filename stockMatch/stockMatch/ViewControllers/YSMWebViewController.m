@@ -21,13 +21,34 @@
     [self configSubview];
     
     [self LoadWebView];
-    [self createNavigationBarWithTitle:@""];
+    [self createNavigationBarWithTitle:@"详情"];
     [self addLeftButtonWithAction];
     // Do any additional setup after loading the view.
 }
 
 - (void)configSubview{
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, Height_NavBar, ScreenWidth, ScreenHeight)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, Height_NavBar, ScreenWidth, ScreenHeight -  Height_NavBar)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, ScreenWidth - 30, 25)];
+    titleLabel.textAlignment = NSTextAlignmentLeft;
+    titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    titleLabel.textColor = RGB(51, 51, 51);
+    titleLabel.text = self.titleStr;
+    [_scrollView addSubview:titleLabel];
+    
+    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, titleLabel.bottom + 10, ScreenWidth - 30, 200)];
+    contentLabel.font = [UIFont systemFontOfSize:14];
+    contentLabel.text = self.contentStr;
+    contentLabel.textColor = RGB(51, 51, 51);
+    contentLabel.numberOfLines = 0;
+    contentLabel.textAlignment = NSTextAlignmentLeft;
+    [contentLabel sizeToFit];
+    _scrollView.contentSize = CGSizeMake(ScreenWidth, titleLabel.bottom + 10 + contentLabel.height);
+    [_scrollView addSubview:contentLabel];
+    
+    [self.view addSubview:self.scrollView];
+    
+//    UILabel *
+    
 //    _webView = [[WKWebView alloc] init];
 //
 //    _webView.frame = CGRectMake(0, Height_NavBar, ScreenWidth, ScreenHeight - Height_NavBar);

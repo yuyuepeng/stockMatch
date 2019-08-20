@@ -46,12 +46,14 @@
         YSMCarouselView *carouseView = [[YSMCarouselView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 200)];
         carouseView.delegate = self;
         NSMutableArray *imgaes = [NSMutableArray array];
-        NSArray <NSString *> *imageNames = @[@"zaixianguwen_img",@"kechuangban_img",@"yijiandaxin_img",@"faxian_img"];
-        NSArray <NSString *> *texts = @[@"人工智能",@"科创板",@"区块链",@"5G"];
         for (NSInteger i = 1; i < 4; i ++) {
             [imgaes addObject:[UIImage imageNamed:[NSString stringWithFormat:@"img%ld",i]]];
            
         }
+        [carouseView addImages:imgaes];
+        NSArray <NSString *> *texts = @[@"人工智能",@"科创板",@"区块链",@"5G"];
+        NSArray <NSString *> *imageNames = @[@"zaixianguwen_img",@"kechuangban_img",@"yijiandaxin_img",@"faxian_img"];
+
         for (NSInteger i = 0; i < 4; i ++) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15 + (width + 30) * i, carouseView.bottom + 15, width , width)];
             [imageView setImage:[UIImage imageNamed:imageNames[i]]];
@@ -71,7 +73,6 @@
             label.userInteractionEnabled = YES;
             [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dianjiTap:)]];
         }
-        [carouseView addImages:imgaes];
         [_tableHeader addSubview:carouseView];
         
         
@@ -135,11 +136,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createViews];
-    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeHomePage parameters:nil succeed:^(NSInteger status, id response) {
-        
-    } fail:^(NSInteger code, NSString *msg) {
-        
-    }];;
+    
     // Do any additional setup after loading the view.
 }
 - (void)createViews {
@@ -214,12 +211,29 @@
 
 }
 - (void)carouselView:(YSMCarouselView *)carouselView clickWithIndex:(NSInteger)index {
-    NSArray <NSString *>*urls = @[@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543331&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543353&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543337&comefrom=fenxiang"];
-    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
-    webVC.urlString = urls[index];
-    [self.navigationController pushViewController:webVC animated:YES];
+   __block NSMutableArray <YSMScrollTextModel *> *models = [NSMutableArray array];
+    
+    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeHomePage parameters:nil succeed:^(NSInteger status, id response) {
+        if (status) {
+            models = [YSMScrollTextModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"homeBanner"]];
+            if (models.count) {
+                YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+                webVC.titleStr = models[index].title;
+                webVC.contentStr = models[index].content;
+                [self.navigationController pushViewController:webVC animated:YES];
+            }else {
+                
+            }
+           
+        }
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];;
+    
+   
 }
 - (void)guandianWithIndex:(NSInteger)tag {
+    
     NSArray <NSString *>*urls = @[@"https://atougu.csc108.com/tgreport/report-share/3211",@"https://atougu.csc108.com/tgreport/report-share/3210"];
     YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
     webVC.urlString = urls[tag];
