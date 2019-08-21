@@ -15,6 +15,9 @@
 #define ScreenHeight    [UIScreen mainScreen].bounds.size.height
 #define ScreenSize      [UIScreen mainScreen].bounds.size
 
+#define makeToast(toast) [[UIApplication sharedApplication].keyWindow makeToast:toast];
+
+
 //是否是iPhoneX系列
 #define isIPHONE_X \
 ({BOOL isPhoneX = NO;\

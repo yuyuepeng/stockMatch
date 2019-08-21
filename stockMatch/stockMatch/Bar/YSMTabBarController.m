@@ -26,6 +26,7 @@
     [self setupChildVc:[[YSMHomeController alloc] init] title:@"首页" image:@"tabBar_first" selectedImage:@"tabBar_first_click" isHiddenNavgationBar:YES];
     [self setupChildVc:[[YSMInfoController alloc] init] title:@"资讯" image:@"tabBar_second" selectedImage:@"tabBar_second_click" isHiddenNavgationBar:YES];
     [self setupChildVc:[[YSMVideoController alloc] init] title:@"视频" image:@"tabBar_second" selectedImage:@"tabBar_second_click" isHiddenNavgationBar:YES];
+    [self setupChildVc:[[NSClassFromString(@"YSMMineController") alloc] init] title:@"我的" image:@"tabBar_second" selectedImage:@"tabBar_second_click" isHiddenNavgationBar:YES];
 
 }
 - (void)setupChildVc:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage isHiddenNavgationBar:(BOOL)isHidden{

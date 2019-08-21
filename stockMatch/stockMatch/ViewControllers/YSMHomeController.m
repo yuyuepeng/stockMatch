@@ -53,7 +53,6 @@
         [carouseView addImages:imgaes];
         NSArray <NSString *> *texts = @[@"人工智能",@"科创板",@"区块链",@"5G"];
         NSArray <NSString *> *imageNames = @[@"zaixianguwen_img",@"kechuangban_img",@"yijiandaxin_img",@"faxian_img"];
-
         for (NSInteger i = 0; i < 4; i ++) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15 + (width + 30) * i, carouseView.bottom + 15, width , width)];
             [imageView setImage:[UIImage imageNamed:imageNames[i]]];
@@ -88,7 +87,7 @@
         [_tableHeader addSubview:tiao];
         tiao.centerY = titleLabel.centerY;
         [_tableHeader addSubview:titleLabel];
-        
+        makeToast(@"wwwww")
         NSMutableArray <YSMScrollTextModel *>* models = [NSMutableArray arrayWithArray:[self getData]];
         
         YSMScrollTextView *textView = [[YSMScrollTextView alloc] initWithFrame:CGRectMake(0, titleLabel.bottom + 5, ScreenWidth, 85) models:models];
@@ -136,7 +135,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createViews];
-    
+
     // Do any additional setup after loading the view.
 }
 - (void)createViews {
