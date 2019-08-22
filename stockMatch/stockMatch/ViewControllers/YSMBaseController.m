@@ -68,6 +68,9 @@
     _navTitle = navTitle;
     self.titleLabel.text = navTitle;
 }
+- (void)getMainQueue:(void (^)(void))block {
+    dispatch_async(dispatch_get_main_queue(), block);
+}
 /*
 #pragma mark - Navigation
 

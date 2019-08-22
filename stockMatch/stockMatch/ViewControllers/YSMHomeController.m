@@ -87,7 +87,7 @@
         [_tableHeader addSubview:tiao];
         tiao.centerY = titleLabel.centerY;
         [_tableHeader addSubview:titleLabel];
-        makeToast(@"wwwww")
+//        makeToast(@"wwwww")
         NSMutableArray <YSMScrollTextModel *>* models = [NSMutableArray arrayWithArray:[self getData]];
         
         YSMScrollTextView *textView = [[YSMScrollTextView alloc] initWithFrame:CGRectMake(0, titleLabel.bottom + 5, ScreenWidth, 85) models:models];

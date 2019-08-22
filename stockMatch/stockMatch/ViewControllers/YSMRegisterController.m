@@ -89,21 +89,32 @@
         makeToast(@"请输入密码");
         return;
     }
-    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    
-    NSString *phone1 = [standard objectForKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
-    if (phone1.length !=0 ) {
-        if ([phone1 isEqualToString:self.phoneNum]) {
-            makeToast(@"当前账号已存在，请登录");
-            return;
-        }
-    }
-    
-    [standard setObject:self.phoneNum forKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
-    
-    [standard setObject:self.passWord forKey:[NSString stringWithFormat:@"%@mimas",self.phoneNum]];
-
-    [self pop];
+    showHud
+    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeRegister parameters:@{@"phoneNum":self.phoneNum,@"passWord":self.passWord} succeed:^(NSInteger status, id response) {
+        [self getMainQueue:^{
+            if (status == 1) {
+                NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
+                
+                NSString *phone1 = [standard objectForKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
+                if (phone1.length !=0 ) {
+                    if ([phone1 isEqualToString:self.phoneNum]) {
+                        makeToast(@"当前账号已存在，请登录");
+                        return;
+                    }
+                }
+                makeToast(@"注册成功");
+                [standard setObject:self.phoneNum forKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
+                
+                [standard setObject:self.passWord forKey:[NSString stringWithFormat:@"%@mimas",self.phoneNum]];
+                
+                [self pop];
+            }
+        }];
+       
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];
+   
 }
 
 - (void)createViews {

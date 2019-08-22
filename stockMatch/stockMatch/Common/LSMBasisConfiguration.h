@@ -15,6 +15,10 @@
 #define ScreenHeight    [UIScreen mainScreen].bounds.size.height
 #define ScreenSize      [UIScreen mainScreen].bounds.size
 
+#define showHud [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+#define hideHud [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+;
+
 #define makeToast(toast) [[UIApplication sharedApplication].keyWindow makeToast:toast];
 
 

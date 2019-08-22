@@ -25,7 +25,6 @@
 @implementation YSMForgetController
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createNavigationBarWithTitle:@"忘记密码"];
@@ -92,18 +91,30 @@
         makeToast(@"请输入密码");
         return;
     }
-    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    
-    NSString *phone1 = [standard objectForKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
-    if (phone1.length == 0) {
-        makeToast(@"账号不存在，请先注册");
-        return;
-    }
-    [standard setObject:self.phoneNum forKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
-    
-    [standard setObject:self.passWord forKey:[NSString stringWithFormat:@"%@mimas",self.phoneNum]];
-    
-    [self pop];
+    showHud
+    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeChangePassWord parameters:@{} succeed:^(NSInteger status, id response) {
+        [self getMainQueue:^{
+            hideHud
+            if (status == 1) {
+                NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
+                
+                NSString *phone1 = [standard objectForKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
+                if (phone1.length == 0) {
+                    makeToast(@"账号不存在，请先注册");
+                    return;
+                }
+                [standard setObject:self.phoneNum forKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
+                
+                [standard setObject:self.passWord forKey:[NSString stringWithFormat:@"%@mimas",self.phoneNum]];
+                
+                [self pop];
+            }
+        }];
+        
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];
+   
 }
 - (void)createViews {
     [self.view addSubview:self.phoneTF];

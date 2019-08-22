@@ -71,7 +71,7 @@
     [self.phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
     [self.passWord stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    NSString *passWord = [standard objectForKey:[NSString stringWithFormat:@"%@mimas",self.phoneNum]];
+   __block NSString *passWord = [standard objectForKey:[NSString stringWithFormat:@"%@mimas",self.phoneNum]];
     if (self.phoneNum.length == 0 ) {
         makeToast(@"请输入手机号");
         return;
@@ -84,17 +84,27 @@
         makeToast(@"请输入密码");
         return;
     }
-    if (passWord.length == 0) {
-        makeToast(@"您未注册，请先注册");
-        return;
-    }
-    
-    if (![self.passWord isEqualToString:passWord]) {
-        makeToast(@"密码错误，请重试");
-    }else {
-        makeToast(@"登录成功");
-        [self pop];
-    }
+    showHud
+    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeLogin parameters:@{@"phoneNum":self.phoneNum,@"passWord":self.passWord} succeed:^(NSInteger status, id response) {
+        [self getMainQueue:^{
+            hideHud
+            if (status == 1) {
+                if (passWord.length == 0) {
+                    makeToast(@"您未注册，请先注册");
+                    return;
+                }
+                if (![self.passWord isEqualToString:passWord]) {
+                    makeToast(@"密码错误，请重试");
+                }else {
+                    makeToast(@"登录成功");
+                    [self pop];
+                }
+            }
+        }];
+       
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];
 }
 
 

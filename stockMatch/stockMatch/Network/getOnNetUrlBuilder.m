@@ -23,60 +23,15 @@ NSString *const esayBaseUrl = @"https://www.easy-mock.com/mock/5d5b53242c32cf1d2
     return url;
 }
 + (NSString *)appendPathWithPathType:(getOnNetUrlBuilderType) type {
-    switch (type) {
+    switch (type) {//
         case getOnNetUrlBuilderTypeLogin:
-            return @"/user/login";
+            return @"/ysmLogin";
             break;
-        case getOnNetUrlBuilderTypeBanner:
-            return @"/banner/1";
+        case getOnNetUrlBuilderTypeRegister:
+            return @"/ysmRegister";
             break;
-        case getOnNetUrlBuilderTypeHotsale:
-            return @"/hotsale";
-            break;
-        case getOnNetUrlBuilderTypeSelect:
-            return @"/car/list";
-            break;
-        case getOnNetUrlBuilderTypeHelp:
-            return @"/question";
-            break;
-        case getOnNetUrlBuilderTypeProvince:
-            return @"/store/province";
-            break;
-        case getOnNetUrlBuilderTypeTown:http://api.geton.com/v1//17
-            return @"/store/city";
-            break;
-        case getOnNetUrlBuilderTypeStoreList:
-            return @"/store/list";
-            break;
-        case getOnNetUrlBuilderTypeCarDetail:
-            return @"/car/detail";
-            break;
-        case getOnNetUrlBuilderTypeSmsSend:
-            return @"/sms/send";
-            break;
-        case getOnNetUrlBuilderTypeCollectionList:
-            return @"/user/collection";
-            break;
-        case getOnNetUrlBuilderTypeSuggestionSub:
-            return @"/user/question";
-            break;
-        case getOnNetUrlBuilderTypeCollect:
-            return @"/car/iscollection";
-            break;
-        case getOnNetUrlBuilderTypeLeaveInfo:
-            return @"/customer/information";
-            break;
-        case getOnNetUrlBuilderTypeLogout:
-            return @"/user/loginout";
-            break;
-        case getOnNetUrlBuilderTypeBuyCar:
-            return @"/car/buyinfo";
-            break;
-        case getOnNetUrlBuilderTypeRecommendCar:
-            return @"/recommendcar";
-            break;
-        case getOnNetUrlBuilderTypeBuyCarTwo:
-            return @"/car/buy";
+        case getOnNetUrlBuilderTypeChangePassWord:
+            return @"/changePassWord";
             break;
         case getOnNetUrlBuilderTypeTest:
             return @"/query";

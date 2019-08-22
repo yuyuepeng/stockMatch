@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addLeftButtonWithAction;
 // 返回上一层控制器的方法  可重写
 - (void)pop;
+//
+- (void)getMainQueue:(void (^)(void))block;
 @end
 
 NS_ASSUME_NONNULL_END
