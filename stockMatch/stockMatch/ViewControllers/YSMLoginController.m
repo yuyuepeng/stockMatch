@@ -16,6 +16,10 @@
 
 @property(nonatomic, strong) UIButton *loginButton;
 
+@property(nonatomic, copy)  NSString *phoneNum;
+
+@property(nonatomic, copy)  NSString *passWord;
+
 @end
 
 @implementation YSMLoginController
@@ -34,9 +38,22 @@
         _phoneTF.font = [UIFont systemFontOfSize:14];
         _phoneTF.placeholder = @"请输入您的手机号";
         _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
+        [_phoneTF addTarget:self action:@selector(textDidChange:) forControlEvents:UIControlEventEditingChanged];
         _phoneTF.textColor = RGB(51, 51, 51);
     }
     return _phoneTF;
+}
+- (UITextField *)passWordTf {
+    if (_passWordTf == nil) {
+        _passWordTf = [[UITextField alloc] initWithFrame:CGRectMake(20,  self.phoneTF.bottom + 2, ScreenWidth - 40, 40)];
+        _passWordTf.textAlignment = NSTextAlignmentLeft;
+        _passWordTf.font = [UIFont systemFontOfSize:14];
+        _passWordTf.placeholder = @"请输入密码";
+        _passWordTf.secureTextEntry = YES;
+        [_passWordTf addTarget:self action:@selector(textDidChange:) forControlEvents:UIControlEventEditingChanged];
+        _passWordTf.textColor = RGB(51, 51, 51);
+    }
+    return _passWordTf;
 }
 - (UIButton *)loginButton {
     if (_loginButton == nil) {
@@ -51,19 +68,42 @@
     return _loginButton;
 }
 - (void)loginButtonClick {
+    [self.phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [self.passWord stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
+    NSString *passWord = [standard objectForKey:[NSString stringWithFormat:@"%@mimas",self.phoneNum]];
+    if (self.phoneNum.length == 0 ) {
+        makeToast(@"请输入手机号");
+        return;
+    }
+    if (self.phoneNum.length != 11) {
+        makeToast(@"请输入正确的手机号");
+        return;
+    }
+    if (self.passWord.length == 0 ) {
+        makeToast(@"请输入密码");
+        return;
+    }
+    if (passWord.length == 0) {
+        makeToast(@"您未注册，请先注册");
+        return;
+    }
     
+    if (![self.passWord isEqualToString:passWord]) {
+        makeToast(@"密码错误，请重试");
+    }else {
+        makeToast(@"登录成功");
+        [self pop];
+    }
 }
 
-- (UITextField *)passWordTf {
-    if (_passWordTf == nil) {
-        _passWordTf = [[UITextField alloc] initWithFrame:CGRectMake(20,  self.phoneTF.bottom + 2, ScreenWidth - 40, 40)];
-        _passWordTf.textAlignment = NSTextAlignmentLeft;
-        _passWordTf.font = [UIFont systemFontOfSize:14];
-        _passWordTf.placeholder = @"请输入密码";
-        _passWordTf.secureTextEntry = YES;
-        _passWordTf.textColor = RGB(51, 51, 51);
+
+- (void)textDidChange:(UITextField *)textField {
+    if (textField == self.passWordTf) {
+        self.passWord = textField.text;
+    }else {
+        self.phoneNum = textField.text;
     }
-    return _passWordTf;
 }
 - (void)createViews {
     [self.view addSubview:self.phoneTF];

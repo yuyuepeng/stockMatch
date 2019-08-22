@@ -38,6 +38,7 @@
 		C161949F230D141100152FD7 /* LSMAccoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C161949E230D141100152FD7 /* LSMAccoutManager.m */; };
 		C16194A2230D219500152FD7 /* YSMLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C16194A1230D219500152FD7 /* YSMLoginController.m */; };
 		C16194A5230D468800152FD7 /* YSMRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = C16194A4230D468800152FD7 /* YSMRegisterController.m */; };
+		C16194A8230E66CD00152FD7 /* YSMForgetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C16194A7230E66CD00152FD7 /* YSMForgetController.m */; };
 		EC0ED93F800436740090FCA7 /* Pods_stockMatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3115F944F66AEE715C4458 /* Pods_stockMatchUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,8 @@
 		C16194A1230D219500152FD7 /* YSMLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMLoginController.m; sourceTree = "<group>"; };
 		C16194A3230D468800152FD7 /* YSMRegisterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMRegisterController.h; sourceTree = "<group>"; };
 		C16194A4230D468800152FD7 /* YSMRegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMRegisterController.m; sourceTree = "<group>"; };
+		C16194A6230E66CD00152FD7 /* YSMForgetController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMForgetController.h; sourceTree = "<group>"; };
+		C16194A7230E66CD00152FD7 /* YSMForgetController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMForgetController.m; sourceTree = "<group>"; };
 		C70370F4AE53F4BE1FECD3F8 /* Pods-stockMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.release.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.release.xcconfig"; sourceTree = "<group>"; };
 		D32858679368DC50BC10FF66 /* Pods-stockMatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stockMatch.debug.xcconfig"; path = "Target Support Files/Pods-stockMatch/Pods-stockMatch.debug.xcconfig"; sourceTree = "<group>"; };
 		DF014EFBE222B06A60E5E118 /* Pods_stockMatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stockMatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,6 +286,8 @@
 				C16194A1230D219500152FD7 /* YSMLoginController.m */,
 				C16194A3230D468800152FD7 /* YSMRegisterController.h */,
 				C16194A4230D468800152FD7 /* YSMRegisterController.m */,
+				C16194A6230E66CD00152FD7 /* YSMForgetController.h */,
+				C16194A7230E66CD00152FD7 /* YSMForgetController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 				C105AF3F23025FE400C6235E /* getOnNetManager.m in Sources */,
 				C105AF6D23055A7900C6235E /* YSMWebViewController.m in Sources */,
 				C105AF3923025F6B00C6235E /* UIView+Toast.m in Sources */,
+				C16194A8230E66CD00152FD7 /* YSMForgetController.m in Sources */,
 				C161949F230D141100152FD7 /* LSMAccoutManager.m in Sources */,
 				C105AEE323016AAB00C6235E /* main.m in Sources */,
 				C16194A5230D468800152FD7 /* YSMRegisterController.m in Sources */,

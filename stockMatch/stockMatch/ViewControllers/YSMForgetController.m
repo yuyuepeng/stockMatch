@@ -1,20 +1,20 @@
 //
-//  YSMRegisterController.m
+//  YSMForgetController.m
 //  stockMatch
 //
-//  Created by 玉岳鹏 on 2019/8/21.
+//  Created by 玉岳鹏 on 2019/8/22.
 //  Copyright © 2019 玉岳鹏. All rights reserved.
 //
 
-#import "YSMRegisterController.h"
+#import "YSMForgetController.h"
 
-@interface YSMRegisterController ()
+@interface YSMForgetController ()
 
 @property(nonatomic, strong) UITextField *phoneTF;
 
 @property(nonatomic, strong) UITextField *passWordTf;
 
-@property(nonatomic, strong) UIButton *loginButton;
+@property(nonatomic, strong) UIButton *changePassWordButton;
 
 @property(nonatomic, copy)  NSString *phoneNum;
 
@@ -22,27 +22,18 @@
 
 @end
 
-@implementation YSMRegisterController
+@implementation YSMForgetController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self createNavigationBarWithTitle:@"注册"];
+    [self createNavigationBarWithTitle:@"忘记密码"];
     [self addLeftButtonWithAction];
     [self createViews];
     // Do any additional setup after loading the view.
 }
-- (UIButton *)loginButton {
-    if (_loginButton == nil) {
-        _loginButton = [[UIButton alloc] initWithFrame:CGRectMake(20, self.passWordTf.bottom + 40, ScreenWidth - 40, 44)];
-        _loginButton.layer.cornerRadius = 5;
-        _loginButton.layer.masksToBounds = YES;
-        _loginButton.backgroundColor = Orange_ThemeColor;
-        _loginButton.centerX = ScreenWidth/2;
-        [_loginButton addTarget:self action:@selector(loginButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        [_loginButton setTitle:@"注册" forState:UIControlStateNormal];
-    }
-    return _loginButton;
-}
+
 - (UITextField *)phoneTF {
     if (_phoneTF == nil) {
         _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(20, Height_NavBar + 80 , ScreenWidth - 40, 40)];
@@ -62,8 +53,8 @@
         _passWordTf.font = [UIFont systemFontOfSize:14];
         _passWordTf.placeholder = @"请输入密码";
         _passWordTf.secureTextEntry = YES;
-        _passWordTf.textColor = RGB(51, 51, 51);
         [_passWordTf addTarget:self action:@selector(textDidChange:) forControlEvents:UIControlEventEditingChanged];
+        _passWordTf.textColor = RGB(51, 51, 51);
     }
     return _passWordTf;
 }
@@ -74,7 +65,19 @@
         self.phoneNum = textField.text;
     }
 }
-- (void)loginButtonClick {
+- (UIButton *)changePassWordButton {
+    if (_changePassWordButton == nil) {
+        _changePassWordButton = [[UIButton alloc] initWithFrame:CGRectMake(20, self.passWordTf.bottom + 40, ScreenWidth - 40, 44)];
+        _changePassWordButton.layer.cornerRadius = 5;
+        _changePassWordButton.layer.masksToBounds = YES;
+        _changePassWordButton.backgroundColor = Orange_ThemeColor;
+        _changePassWordButton.centerX = ScreenWidth/2;
+        [_changePassWordButton addTarget:self action:@selector(changePassWordButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [_changePassWordButton setTitle:@"更改密码" forState:UIControlStateNormal];
+    }
+    return _changePassWordButton;
+}
+- (void)changePassWordButtonClick {
     [self.phoneNum stringByReplacingOccurrencesOfString:@" " withString:@""];
     [self.passWord stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (self.phoneNum.length == 0 ) {
@@ -92,20 +95,16 @@
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     
     NSString *phone1 = [standard objectForKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
-    if (phone1.length !=0 ) {
-        if ([phone1 isEqualToString:self.phoneNum]) {
-            makeToast(@"当前账号已存在，请登录");
-            return;
-        }
+    if (phone1.length == 0) {
+        makeToast(@"账号不存在，请先注册");
+        return;
     }
-    
     [standard setObject:self.phoneNum forKey:[NSString stringWithFormat:@"%@num",self.phoneNum]];
     
     [standard setObject:self.passWord forKey:[NSString stringWithFormat:@"%@mimas",self.phoneNum]];
-
+    
     [self pop];
 }
-
 - (void)createViews {
     [self.view addSubview:self.phoneTF];
     UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(20, self.phoneTF.bottom, ScreenWidth - 40, 0.5)];
@@ -115,7 +114,7 @@
     UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(20, self.passWordTf.bottom, ScreenWidth - 40, 0.5)];
     line2.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:line2];
-    [self.view addSubview:self.loginButton];
+    [self.view addSubview:self.changePassWordButton];
 }
 /*
 #pragma mark - Navigation

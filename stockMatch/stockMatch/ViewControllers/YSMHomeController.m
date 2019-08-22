@@ -220,7 +220,7 @@
     } fail:^(NSInteger code, NSString *msg) {
         
     }];;
-    NSArray <NSString *>*urls = @[@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543331&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543353&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543337&comefrom=fenxiang"];
+//    NSArray <NSString *>*urls = @[@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543331&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543353&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543337&comefrom=fenxiang"];
    
 }
 - (void)guandianWithIndex:(NSInteger)tag {

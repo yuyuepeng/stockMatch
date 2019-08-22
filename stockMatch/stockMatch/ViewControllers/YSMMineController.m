@@ -69,6 +69,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createViews];
+    NSString *num = [[NSUserDefaults standardUserDefaults] objectForKey:@"mmm"];
+    NSLog(@"%@，%ld",num,num.length);
     // Do any additional setup after loading the view.
 }
 - (void)createViews {
@@ -78,6 +80,15 @@
     [headerView addSubview:self.iconView];
     [headerView addSubview:self.nameLabel];
     [self.view addSubview:self.logoutButton];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, headerView.bottom + 150, ScreenWidth, 25)];
+    label.text = @"更多功能模块陆续上线~~~";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor lightGrayColor];
+    label.font = [UIFont systemFontOfSize:14];
+    label.numberOfLines = 0;
+    [self.view addSubview:label];
+//    ScreenHeight - headerView.bottom - Height_TabBar
 }
 /*
 #pragma mark - Navigation
