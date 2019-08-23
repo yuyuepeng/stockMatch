@@ -98,17 +98,30 @@
     return _tableHeader;
 }
 - (void)dianjiTap:(UITapGestureRecognizer *)gesture {
-     NSArray <NSString *>*urls = @[@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11060009",@"https://gu.qq.com/resources/shy/news/subject/index.html#/index?id=SN2018120509371955f63c54&s=b&wxurl=qqstock%3A%2F%2Fnewsspecial%2F%2F%2FSN2018120509371955f63c54%2F%2F%2F%2F&pagetype=share",@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11060007",@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11100002"];
+//     NSArray <NSString *>*urls = @[@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11060009",@"https://gu.qq.com/resources/shy/news/subject/index.html#/index?id=SN2018120509371955f63c54&s=b&wxurl=qqstock%3A%2F%2Fnewsspecial%2F%2F%2FSN2018120509371955f63c54%2F%2F%2F%2F&pagetype=share",@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11060007",@"https://gu.qq.com/stockcard/index.html#/concept-detail?concept_code=11100002"];
     NSInteger tag = [[[NSString stringWithFormat:@"%ld",gesture.view.tag] substringFromIndex:1] integerValue];
-    if (tag == 1) {
-        YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
-        webVC.urlString = urls[tag];
-        [self.navigationController pushViewController:webVC animated:YES];
-    }else {
-        YSMTWebViewController *webVC = [[YSMTWebViewController alloc] init];
-        webVC.urlString = urls[tag];
-        [self.navigationController pushViewController:webVC animated:YES];
-    }
+    __block NSMutableArray <YSMScrollTextModel *> *models = [NSMutableArray array];
+    
+    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeHomePage parameters:nil succeed:^(NSInteger status, id response) {
+        if (status) {
+            models = [YSMScrollTextModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"icon"]];
+            YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+            webVC.titleStr = models[tag].title;
+            webVC.contentStr = models[tag].content;
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];;
+//    if (tag == 1) {
+//        YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+//        webVC.urlString = urls[tag];
+//        [self.navigationController pushViewController:webVC animated:YES];
+//    }else {
+//        YSMTWebViewController *webVC = [[YSMTWebViewController alloc] init];
+//        webVC.urlString = urls[tag];
+//        [self.navigationController pushViewController:webVC animated:YES];
+//    }
   
    
 }
@@ -200,13 +213,26 @@
     return cell;
 }
 - (void)newsClickWithIndex:(NSInteger)tag {
-    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
-    if (tag == 0) {
-        webVC.urlString = @"https://sjzqshare.csc108.com/api/news20/share?newsId=15659166018868601&funType=L295&cpid=000000";
-    }else {
-        webVC.urlString = @"https://sjzqshare.csc108.com/api/news20/share?newsId=15659160018868582&funType=L295&cpid=000000";
-    }
-    [self.navigationController pushViewController:webVC animated:YES];
+    __block NSMutableArray <YSMScrollTextModel *> *models = [NSMutableArray array];
+    
+    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeHomePage parameters:nil succeed:^(NSInteger status, id response) {
+        if (status) {
+            models = [YSMScrollTextModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"news"]];
+            YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+            webVC.titleStr = models[tag].title;
+            webVC.contentStr = models[tag].content;
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];
+//    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+//    if (tag == 0) {
+//        webVC.urlString = @"https://sjzqshare.csc108.com/api/news20/share?newsId=15659166018868601&funType=L295&cpid=000000";
+//    }else {
+//        webVC.urlString = @"https://sjzqshare.csc108.com/api/news20/share?newsId=15659160018868582&funType=L295&cpid=000000";
+//    }
+//    [self.navigationController pushViewController:webVC animated:YES];
 
 }
 - (void)carouselView:(YSMCarouselView *)carouselView clickWithIndex:(NSInteger)index {
@@ -215,27 +241,51 @@
     [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeHomePage parameters:nil succeed:^(NSInteger status, id response) {
         if (status) {
             models = [YSMScrollTextModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"homeBanner"]];
-            
+            YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+            webVC.titleStr = models[index].title;
+            webVC.contentStr = models[index].content;
+            [self.navigationController pushViewController:webVC animated:YES];
         }
     } fail:^(NSInteger code, NSString *msg) {
         
-    }];;
+    }];
 //    NSArray <NSString *>*urls = @[@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543331&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543353&comefrom=fenxiang",@"https://zszx.cmschina.com/newsh5/#/recommenddetail?docid=543337&comefrom=fenxiang"];
    
 }
 - (void)guandianWithIndex:(NSInteger)tag {
     
-    NSArray <NSString *>*urls = @[@"https://atougu.csc108.com/tgreport/report-share/3211",@"https://atougu.csc108.com/tgreport/report-share/3210"];
-    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
-    webVC.urlString = urls[tag];
-    [self.navigationController pushViewController:webVC animated:YES];
-   
+    __block NSMutableArray <YSMScrollTextModel *> *models = [NSMutableArray array];
+    
+    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeHomePage parameters:nil succeed:^(NSInteger status, id response) {
+        if (status) {
+            models = [YSMScrollTextModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"viewpoint"]];
+            YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+            webVC.titleStr = models[tag].title;
+            webVC.contentStr = models[tag].content;
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];
 }
 - (void)zixunClickWithIndex:(NSInteger)tag {
-    NSArray <NSString *>*urls = @[@"https://s1.huanyingzq.com/news/13883?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13885?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13882?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13878?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1"];
-    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
-    webVC.urlString = urls[tag];
-    [self.navigationController pushViewController:webVC animated:YES];
+    __block NSMutableArray <YSMScrollTextModel *> *models = [NSMutableArray array];
+    
+    [[getOnNetManager shareManager] getEasyNetWithPathtype:getOnNetUrlBuilderTypeHomePage parameters:nil succeed:^(NSInteger status, id response) {
+        if (status) {
+            models = [YSMScrollTextModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"infomation"]];
+            YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+            webVC.titleStr = models[tag].title;
+            webVC.contentStr = models[tag].content;
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+    } fail:^(NSInteger code, NSString *msg) {
+        
+    }];
+//    NSArray <NSString *>*urls = @[@"https://s1.huanyingzq.com/news/13883?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13885?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13882?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1",@"https://s1.huanyingzq.com/news/13878?usertoken=_y5kS3d1KMrPXLZo0HIIFfgpanuVyDfETQOeznhml-QPFhAjgTWjJ8FWNuUTM6JTJcOWs1YomF4%2a&packtype=600&version=4.2.3&s=gupiaoniuios&isShare=1"];
+//    YSMWebViewController *webVC = [[YSMWebViewController alloc] init];
+//    webVC.urlString = urls[tag];
+//    [self.navigationController pushViewController:webVC animated:YES];
 }
 /*
 #pragma mark - Navigation

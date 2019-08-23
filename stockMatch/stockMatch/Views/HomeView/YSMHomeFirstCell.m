@@ -111,7 +111,7 @@
     self.tiao.centerY = self.titleLabel.centerY;
     self.titleLabel.text = @"热门观点";
     [self addSubview:self.tiao];
-    NSArray <NSString *> *titleArr = @[@"科技股有望展开秋收行情",@"券商股能“入手”吗？"];
+    NSArray <NSString *> *titleArr = @[@"央行：已成立支持粤港澳大湾区建设工作推进小组",@"小米将在印度推出消费贷款业务"];
 
     for (NSInteger i = 0; i < 2; i ++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 50 + 170 * i, ScreenWidth - 30, 160)];
